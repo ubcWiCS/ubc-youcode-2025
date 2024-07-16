@@ -15,6 +15,7 @@ const getTimeLeft = () => {
 
 const Countdown = () => { 
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
+  let isTimeLeft = true;
  
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,30 +42,46 @@ const Countdown = () => {
     }
   };
 
-  return (
-    <div className='countdown'>
-      <img src="/assets/runner.gif" alt="Treadmill Unicorn" className="running_unicorn" />
-      
-      <div className='header'>
-        Hackthon Starts In:
-      </div>
-      <div className='content'>
-        {Object.entries(timeLeft).map((el) => {
-          const label = el[0];
-          const value = el[1];
-          return (
-            <div className='box' key = {label}>
-              <div className='value'>
-                <span> {value} </span>
-              </div>
-            <span className='label'> {label} </span>
-            </div>
-          );
-        })}
-      </div>
+  if (Object.values(timeLeft)[2] < 0) {
+    isTimeLeft = false;
+  }
 
-    </div>
-  )
+  if (isTimeLeft) {
+    return (
+      <div className='countdown'>
+        <img src="/assets/runner.gif" alt="Treadmill Unicorn" className="running_unicorn" />
+        
+        <div className='header'>
+          Hackathon Starts In:
+        </div>
+        <div className='content'>
+          {Object.entries(timeLeft).map((el) => {
+            const label = el[0];
+            const value = el[1];
+            return (
+              <div className='box' key = {label}>
+                <div className='value'>
+                  <span> {value} </span>
+                </div>
+              <span className='label'> {label} </span>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    )
+  } else {
+    return (
+      <div className='countdown'>
+        <img src="/assets/runner.gif" alt="Treadmill Unicorn" className="running_unicorn" />
+        
+        <div className='no_content'>
+          Hackathon Has Ended
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Countdown 
