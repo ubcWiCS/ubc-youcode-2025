@@ -29,7 +29,8 @@ const Navbar = () => {
   return (
 
     <div className="">
-      <div className={`fixed flex top-0 w-full xl:w-auto justify-between z-10 ease-in bg-transparent hover:bg-dark-green`}>
+      <div className={`fixed flex top-0 w-full xl:w-auto justify-between z-10 ease-in bg-transparent hover:bg-dark-green`}
+           style={{ background: 'linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)' }}>
 
 
       <div className="ml-2 md:ml-5 w-10 h-10 md:w-16 md:h-16 relative mt-2">
@@ -73,11 +74,11 @@ const Navbar = () => {
                 <div
           className={`${
             isOpen ? "flex flex-col items-end justify-end z-1000 absolute mt-8  bg-white text-black " : "hidden"
-          } sm:flex flex-col sm:flex-row sm:w-full font-bold justify-end  text-dark-green md:text-white gap-1 md:gap-4 mt-4`}
+          } sm:flex flex-col sm:flex-row sm:w-full font-bold justify-end  text-key md:text-key gap-1 md:gap-4 mt-4`}
         >
 
         
-          <ul className={`flex flex-col z-1000 md:flex-row justify-end  sm:flex text-[7px] md:text-[10px] lg:text-lg 2xl:text-2xl text-dark-green md:text-white`}>
+          <ul className={`flex flex-col z-1000 md:flex-row justify-end  sm:flex text-[7px] md:text-[10px] lg:text-lg 2xl:text-2xl text-key md:text-key`}>
           <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
               <Link onClick={closeMenu} href="/#about">About</Link>
             </li>
