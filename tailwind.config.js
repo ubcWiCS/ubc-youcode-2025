@@ -18,8 +18,11 @@ module.exports = {
       },
       colors: {
         'teal': '#4ECDC4',
-        'dark-green': '#1A535C',
+        'key': '#41A8A0',
         'light-green': '#E9FFE9',
+        'accent-magenta': '#9A348E',
+        'accent-purple': '#4C349A',
+        'accent-yellow': '#FFEE99'
        
       },
       screens: {
