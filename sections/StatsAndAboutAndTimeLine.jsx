@@ -8,44 +8,16 @@ import TimeLine from '@/components/TimeLine';
 import Stats2 from '@/components/Stats2';
 
 
-const InfoContainer = styled.div`
-  background: #150C27;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920/1080;
-
-  //z-index: 10;
-  overflow: hidden;
-
-
-  
-  
-`
-const BgScroll = styled(SectionContainer)`
-  background: url('assets/Stats.png');
-  background-size: 100vw;
-  background-repeat: no-repeat;
-  background-position: center center;
-  
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
-
-`
 const BodyContainer = styled.div`
   
   margin-top: 0rem;
   position:relative;
-  // margin-left: 1rem;
-  // margin-right: 1rem;
+ 
 
   @media (min-width: 768px) {
     margin-top: 1rem;
   position:relative;
-  // margin-left: 2rem;
-  // margin-right: 2rem;
+ 
   }
   
  
@@ -53,8 +25,7 @@ const BodyContainer = styled.div`
 
 const StatsAndAboutAndTimeLine = () => {
   return (
-    //<InfoContainer>
-      //<BgScroll />
+
       <BodyContainer className='flex w-full flex-col'>
      
       <About/>
@@ -63,8 +34,7 @@ const StatsAndAboutAndTimeLine = () => {
       
       </BodyContainer>
       
-      
-    //</InfoContainer>
+
   )
 }
 
