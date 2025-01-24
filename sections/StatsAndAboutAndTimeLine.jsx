@@ -29,8 +29,7 @@ const StatsAndAboutAndTimeLine = () => {
       <BodyContainer className='flex w-full flex-col'>
      
       <About/>
-      <Stats2/>
-     
+
       
       </BodyContainer>
       
