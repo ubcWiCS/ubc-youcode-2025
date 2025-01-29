@@ -3,7 +3,7 @@ import { MdExpandLess } from 'react-icons/md';
 import { MdExpandMore } from 'react-icons/md';
 
 const faqs = [
-  { question: "Why wellness?", answer: "We advocate for a symbiotic relationship between technology and wellbeing. Technology represents powerful tool that can promote better health, with individuals in the tech industry equally leading healthy lifestyles as they pursue their professional endeavors." },
+  { question: "Why Community & Connection?", answer: "We are passionate about technology that brings people together. We believe that technology is not just about innovation, but about using it as a powerful tool to foster collective social wellbeing, empower communities, and create meaningful connections. By harnessing the potential of technology, we aim to create solutions that positively impact people’s lives and strengthen the bonds within communities." },
   { question: "Do I need any coding experience?", answer: "youCode aims to provide an equal opportunity to beginner and advanced level students to engage with their technical abilities. This is an environment for learning, growth, and proper experience. We offer a beginner stream and advanced stream for students with corresponding levels of experience and relevant coursework. If you have little to no experience, please consider registering as a participant in the beginner stream. " },
   { question: "Who can participate?", answer: "We welcome participants of any gender from all majors and faculties at UBC. You must present a valid UBC student ID to participate at youCode.  " },
   { question: "How do I register?", answer: "Keep your eye out for registration details to come in March!   " },
