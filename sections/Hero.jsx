@@ -12,34 +12,43 @@ import Countdown from '@/components/Countdown/Countdown';
 
 
 
-const BodyContainer = styled.div`
-  
-  margin-top: 3rem;
-  position:relative;
-
-  @media (min-width: 576px) {
-    margin-top: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    margin-top: 4rem;
-  }
-
-  @media (min-width: 1000px) {
-    margin-top: 7rem;
-  }
-  
- 
-`
 
 
 const Hero = () => {
   return (
   
-      <BodyContainer className='flex  items-center justify-center z-10'>
-        <Countdown className="w-1/2"/>
-        <Register />
-      </BodyContainer>
+    <div className='flex flex-col mt-10 md:mt-20 lg:mt-40 md:mt-30 ml-8 md:ml-10 xl:mt-60' id="hero">
+    <div className="flex flex-col  p-40 justify-center items-center  ">
+    <div className="flex justify-center">
+      <img
+        src="/assets/logo.png"
+        alt="YouCode Logo"
+        className="mt-30 md:pt-10 object-cover"
+        style={{
+          width: '80%', // Default size for small screens
+          height: 'auto',
+        }}
+      />
+</div>
+<div className="flex justify-center">
+      <img
+        src="/assets/community.png"
+        alt="YouCode Logo"
+        className="object-cover"
+        style={{
+          width: '60%', // Default size for small screens
+          height: 'auto',
+        }}
+      />
+</div>
+
+    </div>
+    <div className=''>
+      <Register/>
+      
+    </div>
+
+  </div>
      
   )
 }
