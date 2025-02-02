@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className='flex mt-10 md:ml-32 ml-16' id="about">
       <div className="flex flex-col w-2/3">
-        <div className="md:text-8xl text-2xl font-bold drop-shadow-[0_0_4px_#E2D6FF] md:ml-8">
+        <div className="md:text-8xl text-2xl font-bold md:ml-8">
           About youCode 
         </div>
         <p className='hidden drop-shadow-md md:block text-accent-magenta font-semibold lg:text-xl mt-10'>
