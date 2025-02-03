@@ -27,4 +27,43 @@ body {
 
 }
 
+.responsive-img {
+  width: 40%; /* Default for small screens */
+  height: auto;
+  margin-top: 4rem;
+  
+}
+
+@media (min-width: 768px) {
+  .responsive-img {
+    width: 60%;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-img {
+    width: 80%;
+  }
+}
+
+.responsive-img2 {
+  width: 30%; /* Default for small screens */
+  height: auto;
+  
+}
+
+@media (min-width: 768px) {
+  .responsive-img2 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-img2 {
+    width: 60%;
+  }
+}
+
+
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParallax } from 'react-scroll-parallax';
+
 import styled from 'styled-components';
 import { SectionContainer } from '../components/SectionContainer';
 import TimeLine from '@/components/TimeLine';

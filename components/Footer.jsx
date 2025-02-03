@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 import Link from "next/link";
 import Image from 'next/image';
+import { AiOutlineMail, AiOutlineInstagram } from "react-icons/ai";
 
 const StyledFooter = styled.footer`
   display: flex;
   align-items: flex-end;
-  justify-content: space-between; 
+  justify-content: center; 
   margin-bottom: 1rem;
 
   position: absolute;
@@ -21,50 +22,26 @@ const StyledFooter = styled.footer`
 const Footer = () => {
   return (
     <StyledFooter>
-      <FooterSocial
-      direction="row"
-      facebookLink="https://www.facebook.com/ubcwics"
-      emailLink="mailto:ubcwics@gmail.com"
-      instagramLink="https://www.instagram.com/ubcwics"
-      linkedinLink="https://www.linkedin.com/company/ubcwics/"
-      Logolink="https://ubcwics.com/"
-      LogoImage="/assets/WicsLogo.png"
-      />
-      <div className="flex flex-row gap-2 sm:gap-5 md:gap-7">
-        <div className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-10 lg:h-10 relative">
+      <div className="flex  sm:flex-row items-center gap-4 sm:gap-8 md:gap-10 text-center sm:text-left">
+        {/* Email */}
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <Link href="mailto:ubcyoucode@gmail.com">
-            <Image src="/assets/Mail.png" alt="email" fill  />
+            <AiOutlineMail className="w-8 h-8 sm:w-12 sm:h-12 text-white hover:text-blue-500" />
           </Link>
+          <span className="text-white text-sm sm:text-lg">ubcyoucode@gmail.com</span>
         </div>
-        <div className="w-3 h-3 sm:w-4 sm:h-4  md:w-6 md:h-6 lg:w-10 lg:h-10 relative">
-          <Link href="https://www.tiktok.com/@youcode.ubc">
-            <Image src="/assets/tiktok.png" alt="tiktok" fill  />
-          </Link>
-        </div>
-        <div className="w-3 h-3 sm:w-4 sm:h-4  md:w-6 md:h-6 lg:w-10 lg:h-10 relative">
-          <Image  src="/assets/youCodeIcon.png" alt="youCodeIcon" fill />
-        </div>
-        <div className="w-3 h-3 sm:w-4 sm:h-4  md:w-6 md:h-6 lg:w-10 lg:h-10 relative">
-          <Link href="https://www.linkedin.com/company/youcode-ubc/">
-            <Image src="/assets/linkedin.png" alt="linkedin" fill  />
-          </Link>
-        </div>
-        <div className="w-3 h-3 sm:w-4 sm:h-4  md:w-6 md:h-6 lg:w-10 lg:h-10 relative">
+
+        {/* Instagram */}
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <Link href="https://www.instagram.com/youcode.ubc/">
-            <Image src="/assets/Instagram.png" alt="insta" fill  />
+            <AiOutlineInstagram className="w-8 h-8 sm:w-12 sm:h-12 text-white hover:text-pink-500" />
           </Link>
+          <span className="text-white text-sm sm:text-lg">@youcode_ubc</span>
         </div>
       </div>
-      <FooterSocial
-      direction="row-reverse"
-      facebookLink="https://www.facebook.com/widsubc/"
-      emailLink="mailto:widsubc@gmail.com"
-      instagramLink="https://www.instagram.com/widsubc"
-      linkedinLink="https://www.linkedin.com/company/widsubc/"
-      Logolink="https://www.ubcwids.com/"
-      LogoImage="/assets/WidsLogo.png"
-      />
     </StyledFooter>
+
+
   )
 }
 
