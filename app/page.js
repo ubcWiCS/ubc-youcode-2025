@@ -90,10 +90,10 @@ export default function Home() {
       <BgScroll/>
     <ParallaxProvider>
         <Navbar/>
-        <Hero/>
+        <Hero className=''/>
         <Timer/>
         <StatsAndAboutAndTimeLine/>
-        <ResourcesAndFaq/>
+        
         <FaqMobile className="md:hidden"/>
         <SponsorsAndTeam/>
      
