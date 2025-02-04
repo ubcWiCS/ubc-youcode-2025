@@ -1,117 +1,96 @@
-"use client";
-import Link from "next/link";
-import { useState } from "react";
-import {IoMdArrowDropdown} from 'react-icons/io'
-import Image from "next/image";
+"use client"
+import Link from "next/link"
+import { useState } from "react"
+import Image from "next/image"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [smallMenu, setSmallMenu] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-    setSmallMenu(false);
-  };
-
-  const toggleSmallMenu = () => {
-    setSmallMenu(!smallMenu);
+    setIsOpen(!isOpen)
   }
 
-  const closeSmallMenu = () => {
-    setSmallMenu(false);
-  };
-
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
 
   return (
-
-    <div className="">
-      <div className={`fixed flex top-0 w-full xl:w-auto justify-between z-10 ease-in bg-transparent hover:bg-dark-green`}
-           style={{ background: 'linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)' }}>
-
-
-      <div className="ml-2 md:ml-5 w-10 h-10 md:w-16 md:h-16 relative mt-2">
-            <Link href="/" className="ml-5 hover:scale-105 transition duration-500">
-              <Image src="/assets/youCodelogo.png" fill
-                    alt="YouCode Logo"   />
+    <div className="relative">
+      <div
+        className={`fixed top-0 w-full z-10 ease-in bg-transparent hover:bg-dark-green`}
+        style={{ background: "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)" }}
+      >
+        <div className="flex justify-between items-center px-4 py-2">
+          <div className="w-10 h-10 md:w-16 md:h-16 relative">
+            <Link href="/" className="hover:scale-105 transition duration-500">
+              <Image src="/assets/youCodelogo.png" fill alt="YouCode Logo" />
             </Link>
+          </div>
+
+          <div className="sm:hidden">
+            <button className="p-2 focus:outline-none" onClick={toggleMenu} aria-label="Toggle Menu">
+              <svg className="h-6 w-6 fill-current text-accent-magenta font-bold" viewBox="0 0 24 24">
+                <path fillRule="evenodd" clipRule="evenodd" d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="hidden sm:flex items-center">
+            <ul className="flex flex-row justify-end text-[10px] lg:text-lg 2xl:text-2xl text-key">
+              <NavItem href="/#about">About</NavItem>
+              <NavItem href="/#schedule">Schedule</NavItem>
+              <NavItem href="/#resources">Resources</NavItem>
+              <NavItem href="/#faq">FAQ</NavItem>
+              <NavItem href="/#sponsors">Sponsors</NavItem>
+              <NavItem href="/#contact">Contact</NavItem>
+              <NavItem href="/team">Team</NavItem>
+            </ul>
+          </div>
         </div>
+      </div>
 
-        
-        <div className="flex flex-col gap-0">
-
-
-            <div className="sm:hidden  "> 
-                      <button
-                        className="p-2 focus:outline-none"
-                        onClick={toggleMenu}
-                        aria-label="Toggle Menu"
-                      >
-                        <svg
-                          className="h-6 w-6 fill-current text-black font-bold"
-                          viewBox="0 0 24 24"
-                        >
-                          {isOpen ? (
-                            <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z"
-                          />
-                          ) : (
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z"
-                            />
-                          )}
-                        </svg>
-                      </button>
-                    </div>
-
-                <div
-          className={`${
-            isOpen ? "flex flex-col items-end justify-end z-1000 absolute mt-8  bg-white text-black " : "hidden"
-          } sm:flex flex-col sm:flex-row sm:w-full font-bold justify-end  text-key md:text-key gap-1 md:gap-4 mt-4`}
-        >
-
-        
-          <ul className={`flex flex-col z-1000 md:flex-row justify-end  sm:flex text-[7px] md:text-[10px] lg:text-lg 2xl:text-2xl text-key md:text-key`}>
-          <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#about">About</Link>
-            </li>
-            <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#schedule">Schedule</Link>
-            </li>
-            <li className="p-2 md:p-4  mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#resources">Resources</Link>
-            </li>
-           
-           
-            <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#faq">FAQ</Link>
-            </li>
-            <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#sponsors">Sponsors</Link>
-            </li>
-            <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/#contact">Contact</Link>
-            </li>
-            <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="/team">Team</Link>
-            </li>
-            {/* <li className="p-2 md:p-4 mr-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-              <Link onClick={closeMenu} href="https://www.ubcgirlcode.com/">girlCode</Link>
-            </li> */}
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="fixed bg-[#C6FFFF] inset-0 bg-white z-50 flex items-center justify-center sm:hidden">
+          <button onClick={closeMenu} className="absolute top-4 right-4 text-3xl text-accent-magenta">
+            &times;
+          </button>
+          <ul className="flex flex-col items-center space-y-6 text-2xl text-accent-magenta font-bold ">
+            <NavItem href="/#about" onClick={closeMenu}>
+              About
+            </NavItem>
+            <NavItem href="/#schedule" onClick={closeMenu}>
+              Schedule
+            </NavItem>
+            <NavItem href="/#resources" onClick={closeMenu}>
+              Resources
+            </NavItem>
+            <NavItem href="/#faq" onClick={closeMenu}>
+              FAQ
+            </NavItem>
+            <NavItem href="/#sponsors" onClick={closeMenu}>
+              Sponsors
+            </NavItem>
+            <NavItem href="/#contact" onClick={closeMenu}>
+              Contact
+            </NavItem>
+            <NavItem href="/team" onClick={closeMenu}>
+              Team
+            </NavItem>
           </ul>
         </div>
-        </div>
-        
-      </div>
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+const NavItem = ({ href, children, onClick }) => (
+  <li className="p-2 md:p-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
+    <Link href={href} onClick={onClick}>
+      {children}
+    </Link>
+  </li>
+)
+
+export default Navbar
+
