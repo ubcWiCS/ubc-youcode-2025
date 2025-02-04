@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="fixed bg-[#C6FFFF] inset-0 bg-white z-50 flex items-center justify-center sm:hidden">
+        <div className="fixed bg-[#E5FFFF] inset-0 bg-white z-50 flex items-center justify-center sm:hidden">
           <button onClick={closeMenu} className="absolute top-4 right-4 text-3xl text-accent-magenta">
             &times;
           </button>
