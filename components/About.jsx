@@ -15,7 +15,7 @@ const About = () => {
         <p className='text-xs md:hidden text-accent-magenta font-semibold mt-4'>
         Dedicated to fostering gender inclusivity and breaking traditional norms in the tech industry. 24 hour hackathon for underrepresented genders in tech, by WIDS and WICS.
         </p>
-        <p className='text-xs md:block text-accent-magenta md:tracking-wider font-semibold  md:text-xs lg:text-xl mr-20 md:mt-10 font-bold'>
+        <p className='text-xs md:block text-accent-magenta md:tracking-wider font-semibold  md:text-xs lg:text-xl mr-20 md:mt-10'>
         Our values: Inclusivity, Visibility, Community, Wellbeing.
         </p>
       </div>

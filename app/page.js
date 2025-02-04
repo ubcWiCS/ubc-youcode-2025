@@ -11,95 +11,84 @@ import FaqMobile from '@/sections/FaqMobile';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
 
+import buildings from './assets/buildings.svg'
+import city from './assets/city.svg';
+import ground from './assets/ground.svg';
+import mountains from './assets/mountains.svg';
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 const BgSectionContainer = styled(SectionContainer)`
-  background: #150C27;
-  background-size: 100vw;
+  background: #C6FFFF;
+  background-size: 100vw auto;
   background-repeat: no-repeat;
   background-position: center top;
   
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio:1584/3374;
   z-index: 0;
-  overflow: hidden;
 
- 
-  // @media (min-width: 268px) {
-  //   aspect-ratio: 1920/7780;
-  // }
-
-  // @media (min-width: 390px) {
-  //   aspect-ratio: 1920/6980;
-  // }
-
-  // @media (min-width: 768px) {
-  //   aspect-ratio: 1920/6780;
-  // }
-
-  // @media (min-width: 868px) {
-  //   aspect-ratio: 1920/6480;
-  // }
-
-  // @media (min-width: 1000px) {
-  //   aspect-ratio: 1920/6880;
-  // }
-
-  // @media (min-width: 1800px) {
-  //   //aspect-ratio: 1920/6480;
-  //   width: 1980px;
-  //   height:6480px;
-  //   margin:auto;
-
-  //   justify:center;
-  //   align:center;
-
-  // }
-
-  // @media (min-width: 2800px) {
-  //   //aspect-ratio: 1920/6480;
-  //   width: 1580px;
-  //   height:5480px;
-  //   margin:auto;
-
-  //   justify:center;
-  //   align:center;
-
-  // }
-
-  
-  }
 `
-const BgScroll = styled(SectionContainer)`
-  background: url('assets/background.jpg');
-  background-size: cover;
+
+const BgLayer = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+
+  background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center center;
-  
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-
-
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default function Home() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  const yMountains = useTransform(scrollYProgress, [0, 1], [50, 0]);
+  const yCity = useTransform(scrollYProgress, [0, 1], [1500, -500]);
+  const yBuildings = useTransform(scrollYProgress, [0, 1], [3000, -500]);
+  const yGround = useTransform(scrollYProgress, [0, 1], [4500, -500]);
+
   return (
-    <BgSectionContainer>
-      <BgScroll/>
-    <ParallaxProvider>
-        <Navbar/>
-        <Hero className=''/>
-        <Timer/>
-        <StatsAndAboutAndTimeLine/>
-        
-        <FaqMobile className="md:hidden"/>
-        <SponsorsAndTeam/>
-     
-    </ParallaxProvider>
+    <BgSectionContainer ref={ref}>
+      <Navbar />
+      <BgLayer style={{ y: yMountains, zIndex: 1 }}>
+        <Image src={mountains} alt="mountains" className="w-full h-auto object-fill absolute" />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <Hero />
+        </div>
+      </BgLayer>
+
+      <BgLayer style={{ y: yCity, zIndex: 2 }}>
+        <Image src={city} alt="cityscape" className="w-full h-auto object-fill absolute" />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <Timer />
+        </div>
+      </BgLayer>
+
+      <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
+        <Image src={buildings} alt="buildings" className="w-full h-auto object-fill absolute" />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <StatsAndAboutAndTimeLine />
+        </div>
+      </BgLayer>
+
+      <BgLayer style={{ y: yGround, zIndex: 4 }}>
+        <Image src={ground} alt="ground" className="w-full h-auto object-fill absolute" />
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <FaqMobile />
+        </div>
+      </BgLayer>
+
     </BgSectionContainer>
-  )
+  );
 }
 
 
