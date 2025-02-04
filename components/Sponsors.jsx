@@ -8,7 +8,7 @@ const Sponsors = () => {
 
   return (
     <div className="flex flex-col lg:mt-32" id="sponsors">
-      <p className='text-lg md:text-3xl lg:text-5xl font-bold text-white ml-8 drop-shadow-[0_0_4px_#E2D6FF]'> 
+      <p className='text-lg md:text-3xl lg:text-5xl font-bold text-white ml-8'> 
         Our Sponsors 
       </p>
 
