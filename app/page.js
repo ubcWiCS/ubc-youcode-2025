@@ -8,6 +8,7 @@ import StatsAndAboutAndTimeLine from '@/sections/StatsAndAboutAndTimeLine';
 import ResourcesAndFaq from '@/sections/ResourcesAndFaq';
 import SponsorsAndTeam from '@/sections/SponsorsAndTeam';
 import FaqMobile from '@/sections/FaqMobile';
+import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
 
@@ -95,7 +96,8 @@ export default function Home() {
         <StatsAndAboutAndTimeLine/>
         
         <FaqMobile className="md:hidden"/>
-        <SponsorsAndTeam/>
+        {/* <SponsorsAndTeam/> */}
+        <Footer/>
      
     </ParallaxProvider>
     </BgSectionContainer>

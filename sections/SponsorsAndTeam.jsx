@@ -16,7 +16,7 @@ const SponsorsAndTeam = () => {
        <div>
         <Sponsors/>
         
-        <Footer/>
+       
         </div>
      
   )
