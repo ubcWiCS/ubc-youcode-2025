@@ -15,7 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative mb-5 md:mb-40">
       <div
         className={`fixed top-0 w-full z-10 ease-in bg-transparent hover:bg-dark-green`}
         style={{ background: "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)" }}
