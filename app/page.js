@@ -12,6 +12,40 @@ import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
 
+import AnimatedCarousel from "@/components/TeamCarousel"
+
+//placeholder values
+const images = [
+  {
+    src: "/assets/team/sample.png",
+    name: "John Doe",
+    title: "Software Engineer",
+    favoriteFood: "Pizza",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Jane Smith",
+    title: "UX Designer",
+    favoriteFood: "Sushi",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Bob Johnson",
+    title: "Product Manager",
+    favoriteFood: "Tacos",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Alice Brown",
+    title: "Data Scientist",
+    favoriteFood: "Pasta",
+  },
+ 
+ 
+]
+
+
+
 const BgSectionContainer = styled(SectionContainer)`
   background: #150C27;
   background-size: 100vw;
@@ -85,18 +119,23 @@ const BgScroll = styled(SectionContainer)`
 
 `
 
+
+
 export default function Home() {
   return (
     <BgSectionContainer>
+      <ParallaxProvider>
       <BgScroll/>
-    <ParallaxProvider>
+    
         <Navbar/>
-        <Hero className=''/>
+        <Hero className="mt-60"/>
         <Timer/>
         <StatsAndAboutAndTimeLine/>
         
         <FaqMobile className="md:hidden"/>
-        {/* <SponsorsAndTeam/> */}
+         {/* <SponsorsAndTeam/> */}
+        <AnimatedCarousel images={images}/>
+       
         <Footer/>
      
     </ParallaxProvider>

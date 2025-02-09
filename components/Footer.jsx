@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from "next/link";
 import Image from 'next/image';
 import { AiOutlineMail, AiOutlineInstagram } from "react-icons/ai";
+import AnimatedCarousel from './TeamCarousel';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -19,11 +20,43 @@ const StyledFooter = styled.footer`
   
 `;
 
+//placeholder values
+const images = [
+  {
+    src: "/assets/team/sample.png",
+    name: "John Doe",
+    title: "Software Engineer",
+    favoriteFood: "Pizza",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Jane Smith",
+    title: "UX Designer",
+    favoriteFood: "Sushi",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Bob Johnson",
+    title: "Product Manager",
+    favoriteFood: "Tacos",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Alice Brown",
+    title: "Data Scientist",
+    favoriteFood: "Pasta",
+  },
+ 
+ 
+]
+
+
 const Footer = () => {
   return (
     <StyledFooter>
       <div className="flex  sm:flex-row items-center gap-4 sm:gap-8 md:gap-10 text-center sm:text-left">
         {/* Email */}
+      
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <Link href="mailto:ubcyoucode@gmail.com">
             <AiOutlineMail className="w-8 h-8 sm:w-12 sm:h-12 text-white hover:text-blue-500" />
