@@ -27,7 +27,7 @@ const BgSectionContainer = styled(SectionContainer)`
   
   position: relative;
   width: 100%;
-  height: auto;
+  min-height: 200vh;
   aspect-ratio:1584/3374;
   z-index: 0;
 
@@ -36,7 +36,7 @@ const BgSectionContainer = styled(SectionContainer)`
 const BgLayer = styled(motion.div)`
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   height: auto;
 
   background-size: 100% auto;
@@ -54,34 +54,34 @@ export default function Home() {
   const yMountains = useTransform(scrollYProgress, [0, 1], [50, 0]);
   const yCity = useTransform(scrollYProgress, [0, 1], [1500, -500]);
   const yBuildings = useTransform(scrollYProgress, [0, 1], [3000, -500]);
-  const yGround = useTransform(scrollYProgress, [0, 1], [4500, -500]);
+  const yGround = useTransform(scrollYProgress, [0, 1], [5000, -500]);
 
   return (
     <BgSectionContainer ref={ref}>
       <Navbar />
       <BgLayer style={{ y: yMountains, zIndex: 1 }}>
-        <Image src={mountains} alt="mountains" className="w-full h-auto object-fill absolute" />
+        <Image src={mountains} alt="mountains" className="w-full min-h-[50vh] object-cover" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <Hero />
         </div>
       </BgLayer>
 
       <BgLayer style={{ y: yCity, zIndex: 2 }}>
-        <Image src={city} alt="cityscape" className="w-full h-auto object-fill absolute" />
+        <Image src={city} alt="cityscape" className="w-full min-h-[50vh] object-cover" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <Timer />
         </div>
       </BgLayer>
 
       <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
-        <Image src={buildings} alt="buildings" className="w-full h-auto object-fill absolute" />
+        <Image src={buildings} alt="buildings" className="w-full min-h-[50vh] object-cover" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <StatsAndAboutAndTimeLine />
         </div>
       </BgLayer>
 
       <BgLayer style={{ y: yGround, zIndex: 4 }}>
-        <Image src={ground} alt="ground" className="w-full h-auto object-fill absolute" />
+        <Image src={ground} alt="ground" className="w-full min-h-[50vh] object-cover" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <FaqMobile />
         </div>
