@@ -8,8 +8,43 @@ import StatsAndAboutAndTimeLine from '@/sections/StatsAndAboutAndTimeLine';
 import ResourcesAndFaq from '@/sections/ResourcesAndFaq';
 import SponsorsAndTeam from '@/sections/SponsorsAndTeam';
 import FaqMobile from '@/sections/FaqMobile';
+import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
+
+import AnimatedCarousel from "@/components/TeamCarousel"
+
+//placeholder values
+const images = [
+  {
+    src: "/assets/team/sample.png",
+    name: "John Doe",
+    title: "Software Engineer",
+    favoriteFood: "Pizza",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Jane Smith",
+    title: "UX Designer",
+    favoriteFood: "Sushi",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Bob Johnson",
+    title: "Product Manager",
+    favoriteFood: "Tacos",
+  },
+  {
+    src: "/assets/team/sample.png",
+    name: "Alice Brown",
+    title: "Data Scientist",
+    favoriteFood: "Pasta",
+  },
+ 
+ 
+]
+
+
 
 import buildings from './assets/buildings.svg'
 import city from './assets/city.svg';
@@ -46,6 +81,8 @@ const BgLayer = styled(motion.div)`
   align-items: center;
   justify-content: center;
 `;
+
+
 
 export default function Home() {
   const ref = useRef(null);
@@ -86,6 +123,10 @@ export default function Home() {
           <FaqMobile />
         </div>
       </BgLayer>
+
+      <AnimatedCarousel images={images}/>
+       
+      <Footer/>
 
     </BgSectionContainer>
   );

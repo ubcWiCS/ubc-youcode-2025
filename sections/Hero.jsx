@@ -6,7 +6,7 @@ import Register from '@/components/Register';
 const Hero = () => {
   return (
   
-    <div className='flex flex-col sm:mt-20 md:mt-40 lg:mt-40 md:ml-10 xl:mt-60' id="hero">
+    <div className=' sm:mt-20 md:mt-60 md:ml-10 xl:mt-60' id="hero">
     <div className="flex flex-col  mt-40 p-40 justify-center items-center  ">
       <div className="flex justify-center ">
         <img
