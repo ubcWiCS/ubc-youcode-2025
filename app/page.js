@@ -4,15 +4,23 @@ import Image from 'next/image';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Hero from '@/sections/Hero';
 import Timer from '@/sections/Timer';
-import StatsAndAboutAndTimeLine from '@/sections/StatsAndAboutAndTimeLine';
+import AboutSection from '@/sections/StatsAndAboutAndTimeLine';
 import ResourcesAndFaq from '@/sections/ResourcesAndFaq';
 import SponsorsAndTeam from '@/sections/SponsorsAndTeam';
 import FaqMobile from '@/sections/FaqMobile';
 import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
-
 import AnimatedCarousel from "@/components/TeamCarousel"
+import Sponsors from '@/components/Sponsors';
+
+import buildings from './assets/buildings.svg'
+import city from './assets/city.svg';
+import ground from './assets/ground.svg';
+import mountains from './assets/mountains.svg';
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 //placeholder values
 const images = [
@@ -44,103 +52,100 @@ const images = [
  
 ]
 
-
-
 const BgSectionContainer = styled(SectionContainer)`
-  background: #150C27;
-  background-size: 100vw;
-  background-repeat: no-repeat;
-  background-position: center top;
-  
-  position: relative;
-  width: 100%;
-  aspect-ratio:1584/3374;
-  z-index: 0;
-  overflow: hidden;
-
- 
-  // @media (min-width: 268px) {
-  //   aspect-ratio: 1920/7780;
-  // }
-
-  // @media (min-width: 390px) {
-  //   aspect-ratio: 1920/6980;
-  // }
-
-  // @media (min-width: 768px) {
-  //   aspect-ratio: 1920/6780;
-  // }
-
-  // @media (min-width: 868px) {
-  //   aspect-ratio: 1920/6480;
-  // }
-
-  // @media (min-width: 1000px) {
-  //   aspect-ratio: 1920/6880;
-  // }
-
-  // @media (min-width: 1800px) {
-  //   //aspect-ratio: 1920/6480;
-  //   width: 1980px;
-  //   height:6480px;
-  //   margin:auto;
-
-  //   justify:center;
-  //   align:center;
-
-  // }
-
-  // @media (min-width: 2800px) {
-  //   //aspect-ratio: 1920/6480;
-  //   width: 1580px;
-  //   height:5480px;
-  //   margin:auto;
-
-  //   justify:center;
-  //   align:center;
-
-  // }
-
-  
-  }
+  background: #C6FFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 `
-const BgScroll = styled(SectionContainer)`
-  background: url('assets/background.jpg');
+
+const BgLayer = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  
-  position: absolute;
-  top: 0;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+`;
+
+const BgWrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 100%;
-  z-index: -2;
-
-
-`
-
+  height: auto;
+  min-height: 100vh;
+`;
 
 
 export default function Home() {
+  const ref = useRef(null);
+  const [vh, setVh] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const updateVh = () => setVh(window.innerHeight);
+      updateVh();
+      window.addEventListener("resize", updateVh);
+      return () => window.removeEventListener("resize", updateVh);
+    }
+  }, []);
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  const yMountains = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const yCity = useTransform(scrollYProgress, [0, 0.25, 1], [3*vh, 1.5*vh, 0*vh]);
+  const yBuildings = useTransform(scrollYProgress, [0.25, 0.5, 1], [3*vh, 3*vh, 0.25*vh]);
+  const yGround = useTransform(scrollYProgress, [1, 1], [3*vh, 3*vh]);
+
+
   return (
-    <BgSectionContainer>
-      <ParallaxProvider>
-      <BgScroll/>
-    
-        <Navbar/>
-        <Hero className="mt-60"/>
-        <Timer/>
-        <StatsAndAboutAndTimeLine/>
-        
-        <FaqMobile className="md:hidden"/>
-         {/* <SponsorsAndTeam/> */}
-        <AnimatedCarousel images={images}/>
-       
-        <Footer/>
-     
-    </ParallaxProvider>
-    </BgSectionContainer>
-  )
+    <div className="min-h-[450vh]">
+      <Navbar />
+      <div className="bg-[#C6FFFF] min-h-[400vh]">
+        <BgSectionContainer ref={ref}>
+          <BgWrapper>
+            <BgLayer style={{ y: yMountains, zIndex: 1 }}>
+              <Image src={mountains} alt="mountains" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <Hero />
+              </div>
+            </BgLayer>
+
+            <BgLayer style={{ y: yCity, zIndex: 2 }}>
+              <Image src={city} alt="cityscape" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <Timer />
+              </div>
+            </BgLayer>
+
+            <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
+              <Image src={buildings} alt="buildings" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+                <AboutSection />
+                <FaqMobile />
+                <Sponsors />
+              </div>
+            </BgLayer>
+
+            <BgLayer style={{ y: yGround, zIndex: 4 }}>
+              <Image src={ground} alt="ground" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              </div>
+            </BgLayer>
+          </BgWrapper>
+        </BgSectionContainer>
+      </div>
+      <div className='bg-[#7E7E7E] pt-64 pb-32'>
+        <AnimatedCarousel images={images} />
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
 
