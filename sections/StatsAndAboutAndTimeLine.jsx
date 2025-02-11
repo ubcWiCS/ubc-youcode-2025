@@ -23,7 +23,7 @@ const BodyContainer = styled.div`
  
 `
 
-const StatsAndAboutAndTimeLine = () => {
+const AboutSection = () => {
   return (
 
       <BodyContainer className='flex w-full flex-col'>
@@ -37,4 +37,4 @@ const StatsAndAboutAndTimeLine = () => {
   )
 }
 
-export default StatsAndAboutAndTimeLine
+export default AboutSection

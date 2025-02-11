@@ -4,15 +4,23 @@ import Image from 'next/image';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Hero from '@/sections/Hero';
 import Timer from '@/sections/Timer';
-import StatsAndAboutAndTimeLine from '@/sections/StatsAndAboutAndTimeLine';
+import AboutSection from '@/sections/StatsAndAboutAndTimeLine';
 import ResourcesAndFaq from '@/sections/ResourcesAndFaq';
 import SponsorsAndTeam from '@/sections/SponsorsAndTeam';
 import FaqMobile from '@/sections/FaqMobile';
 import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
-
 import AnimatedCarousel from "@/components/TeamCarousel"
+import Sponsors from '@/components/Sponsors';
+
+import buildings from './assets/buildings.svg'
+import city from './assets/city.svg';
+import ground from './assets/ground.svg';
+import mountains from './assets/mountains.svg';
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 //placeholder values
 const images = [
@@ -44,91 +52,99 @@ const images = [
  
 ]
 
-
-
-import buildings from './assets/buildings.svg'
-import city from './assets/city.svg';
-import ground from './assets/ground.svg';
-import mountains from './assets/mountains.svg';
-
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-
 const BgSectionContainer = styled(SectionContainer)`
   background: #C6FFFF;
-  background-size: 100vw auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-  
-  position: relative;
-  width: 100%;
-  min-height: 200vh;
-  aspect-ratio:1584/3374;
-  z-index: 0;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 `
 
 const BgLayer = styled(motion.div)`
   position: absolute;
   width: 100%;
-  min-height: 50vh;
-  height: auto;
+  min-height: 100vh;
 
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 `;
 
+const BgWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+`;
 
 
 export default function Home() {
   const ref = useRef(null);
+  const [vh, setVh] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const updateVh = () => setVh(window.innerHeight);
+      updateVh();
+      window.addEventListener("resize", updateVh);
+      return () => window.removeEventListener("resize", updateVh);
+    }
+  }, []);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
-  const yMountains = useTransform(scrollYProgress, [0, 1], [50, 0]);
-  const yCity = useTransform(scrollYProgress, [0, 1], [1500, -500]);
-  const yBuildings = useTransform(scrollYProgress, [0, 1], [3000, -500]);
-  const yGround = useTransform(scrollYProgress, [0, 1], [5000, -500]);
+  const yMountains = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const yCity = useTransform(scrollYProgress, [0, 0.25, 1], [3*vh, 1.5*vh, 0*vh]);
+  const yBuildings = useTransform(scrollYProgress, [0.25, 0.5, 1], [3*vh, 3*vh, 0.25*vh]);
+  const yGround = useTransform(scrollYProgress, [1, 1], [3*vh, 3*vh]);
+
 
   return (
-    <BgSectionContainer ref={ref}>
+    <div className="min-h-[450vh]">
       <Navbar />
-      <BgLayer style={{ y: yMountains, zIndex: 1 }}>
-        <Image src={mountains} alt="mountains" className="w-full min-h-[50vh] object-cover" />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <Hero />
-        </div>
-      </BgLayer>
+      <div className="bg-[#C6FFFF] min-h-[400vh]">
+        <BgSectionContainer ref={ref}>
+          <BgWrapper>
+            <BgLayer style={{ y: yMountains, zIndex: 1 }}>
+              <Image src={mountains} alt="mountains" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <Hero />
+              </div>
+            </BgLayer>
 
-      <BgLayer style={{ y: yCity, zIndex: 2 }}>
-        <Image src={city} alt="cityscape" className="w-full min-h-[50vh] object-cover" />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <Timer />
-        </div>
-      </BgLayer>
+            <BgLayer style={{ y: yCity, zIndex: 2 }}>
+              <Image src={city} alt="cityscape" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <Timer />
+              </div>
+            </BgLayer>
 
-      <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
-        <Image src={buildings} alt="buildings" className="w-full min-h-[50vh] object-cover" />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <StatsAndAboutAndTimeLine />
-        </div>
-      </BgLayer>
+            <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
+              <Image src={buildings} alt="buildings" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+                <AboutSection />
+                <FaqMobile />
+                <Sponsors />
+              </div>
+            </BgLayer>
 
-      <BgLayer style={{ y: yGround, zIndex: 4 }}>
-        <Image src={ground} alt="ground" className="w-full min-h-[50vh] object-cover" />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <FaqMobile />
-        </div>
-      </BgLayer>
-
-      <AnimatedCarousel images={images}/>
-       
-      <Footer/>
-
-    </BgSectionContainer>
+            <BgLayer style={{ y: yGround, zIndex: 4 }}>
+              <Image src={ground} alt="ground" className="w-full min-h-[100vh] object-cover" />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              </div>
+            </BgLayer>
+          </BgWrapper>
+        </BgSectionContainer>
+      </div>
+      <div className='bg-[#7E7E7E] pt-64 pb-32'>
+        <AnimatedCarousel images={images} />
+        <Footer />
+      </div>
+    </div>
   );
 }
 
