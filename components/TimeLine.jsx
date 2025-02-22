@@ -7,7 +7,7 @@ import Image from 'next/image'
 const TimeLine = () => {
  
   return (
-    <div className='relative flex flex-col w-full items-center justify-center z-10 mt-24 md:mt-32 lg:mt-44 ml-30 md:ml-40 lg:ml-45' id="schedule">
+    <div className='relative flex flex-col items-center justify-center z-10 w-2/3 bg-[#85507f] p-10 rounded-3xl' id="schedule">
       
       
       <h2 className='text-white text-4xl md:text-6xl lg:text-7xl font-bold'>

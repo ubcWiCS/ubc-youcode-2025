@@ -21,11 +21,11 @@ const Navbar = () => {
         style={{ background: "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)" }}
       >
         <div className="flex justify-between items-center px-4 py-2">
-          <div className="w-10 h-10 md:w-16 md:h-16 relative">
-            <Link href="/" className="hover:scale-105 transition duration-500">
-              <Image src="/assets/youCodelogo.png" fill alt="YouCode Logo" />
-            </Link>
-          </div>
+          <Link href="/" className="hover:scale-105 transition duration-500">
+            <div className="w-10 h-10 md:w-16 md:h-16 relative">
+                <Image src="/assets/youCodelogo.png" width={64} height={64} alt="YouCode Logo" />
+            </div>
+          </Link>
 
           <div className="sm:hidden">
             <button className="p-2 focus:outline-none" onClick={toggleMenu} aria-label="Toggle Menu">

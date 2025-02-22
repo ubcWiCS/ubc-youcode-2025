@@ -4,9 +4,9 @@ import Stats from './Stats'
 
 const About = () => {
   return (
-    <div className='flex mt-10 md:ml-32 ml-16' id="about">
-      <div className="flex flex-col w-2/3">
-        <div className="md:text-8xl text-2xl font-bold md:ml-8">
+    <div id="about">
+      <div className="flex flex-col w-2/3 bg-[#e6a9de] p-10 rounded-3xl">
+        <div className="md:text-6xl text-2xl font-bold md:ml-8">
           About youCode 
         </div>
         <p className='hidden md:block text-accent-magenta font-semibold lg:text-xl mt-10'>

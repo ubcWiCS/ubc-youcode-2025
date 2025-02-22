@@ -44,22 +44,26 @@ const faqs = [
 
 const FaqItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="mb-2 md:mb-4 flex flex-col">
-      <button
-        onClick={onClick}
-        className="text-xs md:text-sm lg:text-base flex justify-between items-center w-full px-3 py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 text-left text-white font-semibold bg-accent-magenta/[0.7] rounded-xl hover:bg-accent-magenta/[0.9] transition-all duration-300 focus:outline-none "
-      >
-        {question}
-        <span>{isOpen ? <MdExpandLess className="text-lg" /> : <MdExpandMore className="text-lg" />}</span>
-      </button>
-      {isOpen && (
-        <div className="mt-2  p-3 md:p-4 text-xs md:text-sm text-accent-magenta rounded-2xl  bg-white/10">
+    <div className="mb-2 md:mb-4 w-full"> 
+      <div className="w-full bg-accent-magenta/[0.7] rounded-xl transition-all duration-300 hover:bg-accent-magenta/[0.9]">
+        <button
+          onClick={onClick}
+          className="text-xs md:text-sm lg:text-base flex justify-between items-center w-full px-3 py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 text-left text-white font-semibold focus:outline-none"
+        >
+          {question}
+          <span>{isOpen ? <MdExpandLess className="text-lg" /> : <MdExpandMore className="text-lg" />}</span>
+        </button>
+      </div>
+      
+      <div className={`w-full overflow-hidden transition-all duration-300 ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className="mt-2 p-3 md:p-4 text-xs md:text-sm text-accent-magenta rounded-2xl bg-white/10">
           {answer}
         </div>
-      )}
+      </div>
     </div>
-  )
-}
+  );
+};
+
 
 const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null)
@@ -74,7 +78,7 @@ const FaqSection = () => {
   const lastThirdFaqs = faqs.slice(2 * third)
 
   return (
-    <div className="p-4 md:p-8 lg:p-16 my-10 mx-auto max-w-7xl lg:mt-40" id="faq">
+    <div className="md:p-8 lg:p-16 my-10 mx-auto max-w-7xl lg:mt-40 bg-gray-200 bg-opacity-80 p-10 rounded-lg ml-8 mr-8" id="faq">
       
      
       <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-12">

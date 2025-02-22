@@ -29,7 +29,7 @@ const AnimatedCarousel = ({ images }) => {
   }
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-screen overflow-hidden pt-16 pb-32">
       <div className="animate-carousel hover:pause-animation flex">
         {duplicatedImages.map((image, index) => (
           <div
