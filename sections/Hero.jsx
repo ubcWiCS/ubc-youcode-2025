@@ -15,13 +15,13 @@ const Hero = () => {
           className="mt-20 md:mt-30 md:pt-10 object-cover responsive-img"
         />
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <img
             src="/assets/community.png"
             alt="YouCode Logo"
             className="mt-20 md:mt-30 md:pt-10 object-cover responsive-img2"
           />
-      </div>
+      </div> */}
 
     </div>
     <div className=''>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Register = () => {
   return (
-    <div className='flex flex-col items-center justify-center items-center  text-center mt-3 md:mt-10 lg:mt-10'>
+    <div className='flex flex-col items-center justify-center items-center  text-center mt-3 md:mt-5 lg:mt-5'>
       <p className='text-[8px] md:text-lg  tracking-widest  lg:text-2xl  text-key font-bold  '>WiDS X WiCS present a</p>
       <p className='text-[8px] md:text-lg tracking-widest lg:text-2xl text-key font-bold  '>24-hour wellness-themed hackathon</p>
       <p className='text-[8px] md:text-lg lg:text-2xl tracking-widest text-key font-bold '>April 6-7, 2024</p>
