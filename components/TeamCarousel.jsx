@@ -61,19 +61,20 @@ const teamMembers = [
     favoriteTech: "Airpods",
   },
   {
-    src: "/assets/team/amy.png",
-    name: "Amy Cao",
-    team: "WiDS",
-    title: "Website Manager",
-    favoriteTech: "AirDrop",
-  },
-  {
     src: "/assets/team/salma.png",
     name: "Salma Yazki",
     team: "WiDS",
     title: "VP Internal",
     favoriteTech: "Airpods",
   },
+  {
+    src: "/assets/team/amy.png",
+    name: "Amy Cao",
+    team: "WiDS",
+    title: "Website Manager",
+    favoriteTech: "AirDrop",
+  },
+ 
   {
     src: "/assets/team/karan.png",
     name: "Karan Chick",
@@ -142,13 +143,11 @@ const Card = ({ className, children, onClick }) => (
 const CardContent = ({ className, children }) => <div className={`p-4 ${className}`}>{children}</div>;
 
 const TeamCarousel = () => {
-  const [duplicatedImages, setDuplicatedImages] = useState([]);
+  const duplicatedImages = [...teamMembers, ...teamMembers]; // Directly duplicated
+
   const [activeImage, setActiveImage] = useState(null);
 
-  useEffect(() => {
-    setDuplicatedImages([...teamMembers, ...teamMembers]);
-  }, [teamMembers]);
-  
+ 
 
   const handleImageClick = (image) => {
     setActiveImage(image);
