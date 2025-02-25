@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import { ParallaxProvider } from 'react-scroll-parallax';
@@ -11,18 +11,18 @@ import FaqMobile from '@/sections/FaqMobile';
 import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
-import AnimatedCarousel from "@/components/TeamCarousel"
+import AnimatedCarousel from "@/components/TeamCarousel";
 import Sponsors from '@/components/Sponsors';
 
-import buildings from './assets/buildings.svg'
+import buildings from './assets/buildings.svg';
 import city from './assets/city.svg';
 import ground from './assets/ground.svg';
 import mountains from './assets/mountains.svg';
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, px, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
-//placeholder values
+// Placeholder values
 const images = [
   {
     src: "/assets/team/sample.png",
@@ -48,9 +48,7 @@ const images = [
     title: "Data Scientist",
     favoriteFood: "Pasta",
   },
- 
- 
-]
+];
 
 const BgSectionContainer = styled(SectionContainer)`
   background: #C6FFFF;
@@ -58,13 +56,12 @@ const BgSectionContainer = styled(SectionContainer)`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-`
+`;
 
 const BgLayer = styled(motion.div)`
   position: absolute;
   width: 100%;
   min-height: 100vh;
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -81,6 +78,21 @@ const BgWrapper = styled.div`
   min-height: 100vh;
 `;
 
+const AboutContainer = styled.div`
+  margin-top: 1000px;
+`;
+
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const SponsorsContainer = styled.div`
+  margin-bottom: 900px; /* Adjust spacing */
+`;
 
 export default function Home() {
   const ref = useRef(null);
@@ -98,10 +110,9 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   const yMountains = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const yCity = useTransform(scrollYProgress, [0, 0.25, 1], [3*vh, 1.5*vh, 0*vh]);
-  const yBuildings = useTransform(scrollYProgress, [0.25, 0.5, 1], [3*vh, 3*vh, 0.25*vh]);
-  const yGround = useTransform(scrollYProgress, [1, 1], [3*vh, 3*vh]);
-
+  const yCity = useTransform(scrollYProgress, [0, 0.25, 1], [3 * vh, 1.5 * vh, 0 * vh]);
+  const yBuildings = useTransform(scrollYProgress, [0.25, 0.5, 1], [3 * vh, 3 * vh, 0.25 * vh]);
+  const yGround = useTransform(scrollYProgress, [1, 1], [3 * vh, 3 * vh]);
 
   return (
     <div className="min-h-[450vh]">
@@ -126,16 +137,32 @@ export default function Home() {
             <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
               <Image src={buildings} alt="buildings" className="w-full min-h-[100vh] object-cover" />
               <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                <AboutSection />
+                <AboutContainer>
+                  <AboutSection />
+                </AboutContainer>
                 <FaqMobile />
-                <Sponsors />
+
+                <ImageContainer>
+                  <Image 
+                    src="/assets/lastyear2024.svg" 
+                    alt="Last Year"
+                    width={1000}  
+                    height={400} 
+                    layout="intrinsic" 
+                    quality={100} 
+                    priority 
+                  />
+                </ImageContainer>
+
+                <SponsorsContainer>
+                  <Sponsors />
+                </SponsorsContainer>
               </div>
             </BgLayer>
 
             <BgLayer style={{ y: yGround, zIndex: 4 }}>
               <Image src={ground} alt="ground" className="w-full min-h-[100vh] object-cover" />
-              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-              </div>
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center"></div>
             </BgLayer>
           </BgWrapper>
         </BgSectionContainer>
@@ -147,5 +174,3 @@ export default function Home() {
     </div>
   );
 }
-
-

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// Sample team data
 const teamMembers = [
   {
     src: "/assets/team/sabrina.png",
@@ -130,6 +129,27 @@ const teamMembers = [
     team: "WiCS",
     title: "VP Finance",
     favoriteTech: "Sony WH-1000XM5",
+  },
+  {
+    src: "/assets/team/oli.png",
+    name: "Olivia Lam",
+    team: "WiDS",
+    title: "Co-VP Marketing",
+    favoriteTech: "Monitor",
+  },
+  {
+    src: "/assets/team/hannah.png",
+    name: "Hannah Meaney",
+    team: "WiCS",
+    title: "Conference Lead",
+    favoriteTech: "Kobo",
+  },
+  {
+    src: "/assets/team/maraym.png",
+    name: "Maryum Chaudhry",
+    team: "WiCS",
+    title: "Graphic Design & Swag",
+    favoriteTech: "Instax Mini Camera",
   },
 ];
 // Card component
