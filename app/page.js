@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import Hero from '@/sections/Hero';
@@ -6,7 +6,7 @@ import AboutSection from '@/sections/StatsAndAboutAndTimeLine';
 import Footer from '@/components/Footer';
 import { SectionContainer } from '@/components/SectionContainer';
 import styled from 'styled-components';
-import AnimatedCarousel from "@/components/TeamCarousel"
+import AnimatedCarousel from "@/components/TeamCarousel";
 import Sponsors from '@/components/Sponsors';
 import TimeLine from '@/components/TimeLine';
 import FaqSection from '@/components/faq';
@@ -19,10 +19,10 @@ import front_city from './assets/front_city.svg';
 import road from './assets/road.svg';
 
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, px, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
-//placeholder values
+// Placeholder values
 const images = [
   {
     src: "/assets/team/sample.png",
@@ -48,9 +48,7 @@ const images = [
     title: "Data Scientist",
     favoriteFood: "Pasta",
   },
- 
- 
-]
+];
 
 const BgSectionContainer = styled(SectionContainer)`
   position: relative;
@@ -63,9 +61,14 @@ const BgSectionContainer = styled(SectionContainer)`
 
 const BgLayer = styled(motion.div)`
   position: absolute;
-
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
 
 export default function Home() {
   const ref = useRef(null);
@@ -86,7 +89,7 @@ export default function Home() {
   const yBackCity = useTransform(scrollYProgress, [0,0.2], [1*vh, 0.5*vh])
   const yMidCity = useTransform(scrollYProgress, [0.2,0.4], [2*vh, 1.4*vh])
   const yFrontCity = useTransform(scrollYProgress, [0.4, 0.7], [3*vh, 2.1*vh])
-  const yBottomBuildings = useTransform(scrollYProgress, [0.7, 1], [5*vh, 3.3*vh])
+  const yBottomBuildings = useTransform(scrollYProgress, [0.7, 1], [6*vh, 4*vh])
   const yRoad = useTransform(scrollYProgress, [1, 1], [5.5*vh, 5.5*vh]);
   
 
@@ -121,6 +124,17 @@ export default function Home() {
           <Image src={front_city} alt="front_city" className="w-screen min-h-[200vh] md:min-h-screen object-cover" />
           <div className="absolute top-1/4 w-full h-full justify-center">
             <Sponsors />
+            <ImageContainer id="image-container">
+                    <Image 
+                      src="/assets/lastyear2024.svg" 
+                      alt="Last Year"
+                      width={1000}  
+                      height={400} 
+                      layout="intrinsic" 
+                      quality={100} 
+                      priority 
+                    />
+            </ImageContainer>
           </div>
         </BgLayer>
 

@@ -1,50 +1,207 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
+const teamMembers = [
+  {
+    src: "/assets/team/sabrina.png",
+    name: "Sabrina Lou",
+    team: "WiDS",
+    title: "youCode Co-Lead",
+    favoriteTech: "my Apple Pencil",
+  },
+  {
+    src: "/assets/team/kaitlin.png",
+    name: "Kaitlin Khu",
+    team: "WiDS",
+    title: "Co-VP Marketing",
+    favoriteTech: "Airpods pro",
+  },
+  {
+    src: "/assets/team/megan.png",
+    name: "Megan Ong",
+    team: "WiDS",
+    title: "Internal Outreach Director",
+    favoriteTech: "Headphones",
+  },
+  {
+    src: "/assets/team/eleny.png",
+    name: "Eleny Xia",
+    team: "WiDS",
+    title: "First Year Rep",
+    favoriteTech: "Airpods",
+  },
+  {
+    src: "/assets/team/tara.png",
+    name: "Tara Ubovic",
+    team: "WiDS",
+    title: "President",
+    favoriteTech: "my mac",
+  },
+  {
+    src: "/assets/team/kelly.png",
+    name: "Kelly Zhu",
+    team: "WiDS",
+    title: "VP Events",
+    favoriteTech: "sun alarm",
+  },
+  {
+    src: "/assets/team/elin.png",
+    name: "Elin Lee",
+    team: "WiDS",
+    title: "Mentorship Coordinator",
+    favoriteTech: "iPad",
+  },
+  {
+    src: "/assets/team/anusha.png",
+    name: "Anusha Thukral",
+    team: "WiDS",
+    title: "Mentorship Program Events Director",
+    favoriteTech: "Airpods",
+  },
+  {
+    src: "/assets/team/salma.png",
+    name: "Salma Yazki",
+    team: "WiDS",
+    title: "VP Internal",
+    favoriteTech: "Airpods",
+  },
+  {
+    src: "/assets/team/amy.png",
+    name: "Amy Cao",
+    team: "WiDS",
+    title: "Website Manager",
+    favoriteTech: "AirDrop",
+  },
+ 
+  {
+    src: "/assets/team/karan.png",
+    name: "Karan Chick",
+    team: "WiCS",
+    title: "UI/UX Designer",
+    favoriteTech: "Kindle",
+  },
+  {
+    src: "/assets/team/kim.png",
+    name: "Kim Tran",
+    team: "WiCS",
+    title: "Community Events Director",
+    favoriteTech: "iPhone",
+  },
+  {
+    src: "/assets/team/ramona.png",
+    name: "Ramona Karimi",
+    team: "WiCS",
+    title: "First Year Rep",
+    favoriteTech: "Headphones",
+  },
+  {
+    src: "/assets/team/ananya.png",
+    name: "Ananya Chopra",
+    team: "WiCS",
+    title: "Community Events Director",
+    favoriteTech: "Headphones",
+  },
+  {
+    src: "/assets/team/katja.png",
+    name: "Katja Radovic-Jonsson",
+    team: "WiCS",
+    title: "First Year Rep",
+    favoriteTech: "Fridge",
+  },
+  {
+    src: "/assets/team/sandra.png",
+    name: "Sandra Radic",
+    team: "WiCS",
+    title: "youCode Founder, WiCS Co-Pres ",
+    favoriteTech: "French press",
+  },
+  {
+    src: "/assets/team/grace.png",
+    name: "Grace Gao",
+    team: "WiCS",
+    title: "Webmaster",
+    favoriteTech: "Airpods",
+  },
+  {
+    src: "/assets/team/tanya.jpg",
+    name: "Tanya",
+    team: "WiCS",
+    title: "Webmaster",
+    favoriteTech: "RaspberryPi",
+  },
+  {
+    src: "/assets/team/irmak.png",
+    name: "Irmak Bayir",
+    team: "WiCS",
+    title: "VP Finance",
+    favoriteTech: "Sony WH-1000XM5",
+  },
+  {
+    src: "/assets/team/oli.png",
+    name: "Olivia Lam",
+    team: "WiDS",
+    title: "Co-VP Marketing",
+    favoriteTech: "Monitor",
+  },
+  {
+    src: "/assets/team/hannah.png",
+    name: "Hannah Meaney",
+    team: "WiCS",
+    title: "Conference Lead",
+    favoriteTech: "Kobo",
+  },
+  {
+    src: "/assets/team/maraym.png",
+    name: "Maryum Chaudhry",
+    team: "WiCS",
+    title: "Graphic Design & Swag",
+    favoriteTech: "Instax Mini Camera",
+  },
+];
 // Card component
 const Card = ({ className, children, onClick }) => (
   <div className={`bg-white rounded-lg shadow-lg ${className}`} onClick={onClick}>
     {children}
   </div>
-)
+);
 
 // CardContent component
-const CardContent = ({ className, children }) => <div className={`p-4 ${className}`}>{children}</div>
+const CardContent = ({ className, children }) => <div className={`p-4 ${className}`}>{children}</div>;
 
-const AnimatedCarousel = ({ images }) => {
-  const [duplicatedImages, setDuplicatedImages] = useState([])
-  const [activeImage, setActiveImage] = useState(null)
+const TeamCarousel = () => {
+  const duplicatedImages = [...teamMembers, ...teamMembers]; // Directly duplicated
 
-  useEffect(() => {
-    setDuplicatedImages([...images, ...images])
-  }, [images])
+  const [activeImage, setActiveImage] = useState(null);
+
+ 
 
   const handleImageClick = (image) => {
-    setActiveImage(image)
-  }
+    setActiveImage(image);
+  };
 
   const handleClosePopup = () => {
-    setActiveImage(null)
-  }
+    setActiveImage(null);
+  };
 
   return (
     <div className="w-screen overflow-hidden pt-16 pb-32">
       <div className="animate-carousel hover:pause-animation flex">
         {duplicatedImages.map((image, index) => (
           <div
-            key={index}
-            className="flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/5 px-8 "
+            key={index} // Ensure unique keys
+            className="flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/5 px-4" // Adjust spacing
             onClick={() => handleImageClick(image)}
           >
             <img
               src={image.src || "/placeholder.svg"}
-              alt={`Carousel item ${index}`}
+              alt={image.name} // Use name for better accessibility
               className="w-full h-36 object-cover rounded-lg cursor-pointer"
             />
           </div>
         ))}
       </div>
+
       {activeImage && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
@@ -59,18 +216,20 @@ const AnimatedCarousel = ({ images }) => {
               />
               <h3 className="text-lg font-semibold mb-2">{activeImage.name}</h3>
               <p className="text-sm mb-1">
-                <span className="font-medium">Title:</span> {activeImage.title}
+                <span className="font-medium">Team:</span> {activeImage.team || "N/A"}
+              </p>
+              <p className="text-sm mb-1">
+                <span className="font-medium">Position:</span> {activeImage.title || "N/A"}
               </p>
               <p className="text-sm">
-                <span className="font-medium">Favorite Food:</span> {activeImage.favoriteFood}
+                <span className="font-medium">Favorite Tech:</span> {activeImage.favoriteTech || "N/A"}
               </p>
             </CardContent>
           </Card>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AnimatedCarousel
-
+export default TeamCarousel;

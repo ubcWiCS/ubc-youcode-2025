@@ -17,7 +17,7 @@ const TimeLine = () => {
       <div className="text-white text-center mt-4 lg:mt-8 space-y-3 md:space-y-5 lg:space-y-6">
         <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 01 | Registration Opens</p>
         <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 22 | Workshops Begin</p>
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>April 06 | Hacking Begins</p>
+        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>April 05 | Hacking Begins</p>
       </div>
 
     </div>
