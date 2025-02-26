@@ -124,6 +124,13 @@ const teamMembers = [
     favoriteTech: "Airpods",
   },
   {
+    src: "/assets/team/tanya.jpg",
+    name: "Tanya",
+    team: "WiCS",
+    title: "Webmaster",
+    favoriteTech: "RaspberryPi",
+  },
+  {
     src: "/assets/team/irmak.png",
     name: "Irmak Bayir",
     team: "WiCS",
