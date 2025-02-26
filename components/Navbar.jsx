@@ -1,18 +1,22 @@
-"use client"
-import Link from "next/link"
-import { useState } from "react"
-import Image from "next/image"
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const closeMenu = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
+  const handleResourcesClick = () => {
+    window.open("https://momentous-alley-371.notion.site/Pre-Hackathon-Resources-1a56bd9d8cc780a7b3d9e3855d697e70", "_blank");
+  };
 
   return (
     <div>
@@ -37,13 +41,13 @@ const Navbar = () => {
 
           <div className="hidden sm:flex items-center">
             <ul className="flex flex-row justify-end text-[10px] lg:text-lg 2xl:text-2xl text-key">
-              <NavItem href="/#about">About</NavItem>
+              <NavItem href="/#schedule">About</NavItem>
               <NavItem href="/#schedule">Schedule</NavItem>
-              <NavItem href="/#resources">Resources</NavItem>
+              <NavItem onClick={handleResourcesClick}>Resources</NavItem>
               <NavItem href="/#faq">FAQ</NavItem>
               <NavItem href="/#sponsors">Sponsors</NavItem>
-              <NavItem href="/#contact">Contact</NavItem>
-              <NavItem href="/team">Team</NavItem>
+              <NavItem href="/#carousel-section">Contact</NavItem>
+              <NavItem href="/#carousel-section">Team</NavItem>
             </ul>
           </div>
         </div>
@@ -62,7 +66,7 @@ const Navbar = () => {
             <NavItem href="/#schedule" onClick={closeMenu}>
               Schedule
             </NavItem>
-            <NavItem href="/#resources" onClick={closeMenu}>
+            <NavItem onClick={handleResourcesClick} onClick={closeMenu}>
               Resources
             </NavItem>
             <NavItem href="/#faq" onClick={closeMenu}>
@@ -81,16 +85,21 @@ const Navbar = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 const NavItem = ({ href, children, onClick }) => (
   <li className="p-2 md:p-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-    <Link href={href} onClick={onClick}>
-      {children}
-    </Link>
+    {href ? (
+      <Link href={href} onClick={onClick}>
+        {children}
+      </Link>
+    ) : (
+      <button onClick={onClick} className="text-inherit">
+        {children}
+      </button>
+    )}
   </li>
-)
+);
 
-export default Navbar
-
+export default Navbar;

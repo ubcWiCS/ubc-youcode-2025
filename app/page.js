@@ -82,7 +82,6 @@ const AboutContainer = styled.div`
   margin-top: 1000px;
 `;
 
-
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -118,31 +117,31 @@ export default function Home() {
     <div className="min-h-[450vh]">
       <Navbar />
       <div className="bg-[#C6FFFF] min-h-[400vh]">
-        <BgSectionContainer ref={ref}>
+        <BgSectionContainer ref={ref} id="bg-section-container">
           <BgWrapper>
-            <BgLayer style={{ y: yMountains, zIndex: 1 }}>
+            <BgLayer style={{ y: yMountains, zIndex: 1 }} id="mountains-layer">
               <Image src={mountains} alt="mountains" className="w-full min-h-[100vh] object-cover" />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
                 <Hero />
               </div>
             </BgLayer>
 
-            <BgLayer style={{ y: yCity, zIndex: 2 }}>
+            <BgLayer style={{ y: yCity, zIndex: 2 }} id="city-layer">
               <Image src={city} alt="cityscape" className="w-full min-h-[100vh] object-cover" />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
                 <Timer />
               </div>
             </BgLayer>
 
-            <BgLayer style={{ y: yBuildings, zIndex: 3 }}>
+            <BgLayer style={{ y: yBuildings, zIndex: 3 }} id="buildings-layer">
               <Image src={buildings} alt="buildings" className="w-full min-h-[100vh] object-cover" />
               <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                <AboutContainer>
+                <AboutContainer id="about-container">
                   <AboutSection />
                 </AboutContainer>
-                <FaqMobile />
+                <FaqMobile id="faq-mobile" />
 
-                <ImageContainer>
+                <ImageContainer id="image-container">
                   <Image 
                     src="/assets/lastyear2024.svg" 
                     alt="Last Year"
@@ -154,20 +153,20 @@ export default function Home() {
                   />
                 </ImageContainer>
 
-                <SponsorsContainer>
+                <SponsorsContainer id="sponsors">
                   <Sponsors />
                 </SponsorsContainer>
               </div>
             </BgLayer>
 
-            <BgLayer style={{ y: yGround, zIndex: 4 }}>
+            <BgLayer style={{ y: yGround, zIndex: 4 }} id="ground-layer">
               <Image src={ground} alt="ground" className="w-full min-h-[100vh] object-cover" />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center"></div>
             </BgLayer>
           </BgWrapper>
         </BgSectionContainer>
       </div>
-      <div className='bg-[#7E7E7E] pt-64 pb-32'>
+      <div className='bg-[#7E7E7E] pt-64 pb-32' id="carousel-section">
         <AnimatedCarousel images={images} />
         <Footer />
       </div>
