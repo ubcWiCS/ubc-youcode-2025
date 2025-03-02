@@ -8,12 +8,12 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        carousel: "carousel 20s linear infinite",
+        carousel: "carousel 40s linear infinite", // Slow down the carousel to 40s
       },
       keyframes: {
         carousel: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-300%)" },
+          "100%": { transform: "translateX(-500%)" }, // Adjust to show more items
         },
       },
       backgroundImage: {
@@ -32,23 +32,14 @@ module.exports = {
         'accent-magenta': '#9A348E',
         'accent-purple': '#4C349A',
         'accent-yellow': '#FFEE99'
-       
       },
       screens: {
         'sm': '576px',
-        // => @media (min-width: 576px) { ... }
-      
         'md': '768px',
-        // => @media (min-width: 768px) { ... }
-      
         'lg': '1080px',
-        // => @media (min-width: 992px) { ... }
-      
         'xl': '1800px',
-        // => @media (min-width: 1200px) { ... }
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
-

@@ -11,6 +11,20 @@ const teamMembers = [
     favoriteTech: "my Apple Pencil",
   },
   {
+    src: "/assets/team/sandra.png",
+    name: "Sandra Radic",
+    team: "WiCS",
+    title: "youCode Founder, WiCS Co-Pres ",
+    favoriteTech: "French press",
+  },
+  {
+    src: "/assets/team/tara.png",
+    name: "Tara Ubovic",
+    team: "WiDS",
+    title: "President",
+    favoriteTech: "my mac",
+  },
+  {
     src: "/assets/team/kaitlin.png",
     name: "Kaitlin Khu",
     team: "WiDS",
@@ -30,13 +44,6 @@ const teamMembers = [
     team: "WiDS",
     title: "First Year Rep",
     favoriteTech: "Airpods",
-  },
-  {
-    src: "/assets/team/tara.png",
-    name: "Tara Ubovic",
-    team: "WiDS",
-    title: "President",
-    favoriteTech: "my mac",
   },
   {
     src: "/assets/team/kelly.png",
@@ -108,13 +115,6 @@ const teamMembers = [
     team: "WiCS",
     title: "First Year Rep",
     favoriteTech: "Fridge",
-  },
-  {
-    src: "/assets/team/sandra.png",
-    name: "Sandra Radic",
-    team: "WiCS",
-    title: "youCode Founder, WiCS Co-Pres ",
-    favoriteTech: "French press",
   },
   {
     src: "/assets/team/grace.png",

@@ -1,6 +1,8 @@
-"use client";
-import Navbar from '@/components/Navbar';
+"use client"; // Add this line at the top
+
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
+import Navbar from '@/components/Navbar';
 import Hero from '@/sections/Hero';
 import AboutSection from '@/sections/StatsAndAboutAndTimeLine';
 import Footer from '@/components/Footer';
@@ -19,8 +21,7 @@ import front_city from './assets/front_city.svg';
 import road from './assets/road.svg';
 
 
-import { motion, px, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // Placeholder values
 const images = [
@@ -94,7 +95,6 @@ export default function Home() {
   
 
   return (
-    
     <div>
       <Navbar />
       
@@ -153,6 +153,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
