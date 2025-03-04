@@ -27,7 +27,7 @@ const Footer = () => {
         <span className="text-white text-sm sm:text-lg">@ubcwics</span>
       </div>
 
-      {/* Centered Email and Instagram */}
+  
       <div className="flex sm:flex-row items-center gap-4 sm:gap-8 md:gap-10 text-center sm:text-left">
         {/* Email */}
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
@@ -37,7 +37,7 @@ const Footer = () => {
           <span className="text-white text-sm sm:text-lg">ubcyoucode@gmail.com</span>
         </div>
 
-        {/* Instagram */}
+
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <Link href="https://www.instagram.com/youcode.ubc/">
             <AiOutlineInstagram className="w-8 h-8 sm:w-12 sm:h-12 text-white hover:text-pink-500" />
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Right side Instagram handle */}
+
       <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
         <Link href="https://www.instagram.com/widsubc/">
           <AiOutlineInstagram className="w-8 h-8 sm:w-12 sm:h-12 text-white hover:text-pink-500" />
