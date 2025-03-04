@@ -16,6 +16,7 @@ import FaqSection from '@/components/faq';
 import mid_city from './assets/mid_city.svg'
 import back_city from './assets/back_city.svg';
 import bottom_buildings from './assets/bottom_buildings.svg';
+import totempole from './assets/totempole.svg';
 import back_mountains from './assets/back_mountains.svg';
 import front_city from './assets/front_city.svg';
 import road from './assets/road.svg';
@@ -128,8 +129,8 @@ export default function Home() {
                     <Image 
                       src="/assets/lastyear2024.svg" 
                       alt="Last Year"
-                      width={1000}  
-                      height={400} 
+                      width={2880}  
+                      height={1350} 
                       layout="intrinsic" 
                       quality={100} 
                       priority 
@@ -139,7 +140,7 @@ export default function Home() {
         </BgLayer>
 
         <BgLayer style={{ y: yBottomBuildings, zIndex: 5 }}>
-          <Image src={bottom_buildings} alt="ground_buildings" className="w-screen min-h-[150vh] md:min-h-screen object-cover" />
+          <Image src={totempole} alt="ground_buildings" className="w-screen min-h-[150vh] md:min-h-screen object-cover" />
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
             <FaqSection />
           </div>
