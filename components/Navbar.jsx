@@ -66,7 +66,7 @@ const Navbar = () => {
             <NavItem href="/#schedule" onClick={closeMenu}>
               Schedule
             </NavItem>
-            <NavItem onClick={handleResourcesClick} onClick={closeMenu}>
+            <NavItem  onClick={closeMenu}>
               Resources
             </NavItem>
             <NavItem href="/#faq" onClick={closeMenu}>

@@ -1,8 +1,7 @@
 {
-    "rewrites": [
-      {
-        "source": "/studio(.*)",
-        "destination": "/studio/index.html"
-      }
-    ]
+  "build": {
+    "env": {
+      "NODE_VERSION": "20.x"
+    }
   }
+}
