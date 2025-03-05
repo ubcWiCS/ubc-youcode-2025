@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        carousel: "carousel 40s linear infinite", // Slow down the carousel to 40s
+        carousel: "carousel 100s linear infinite", // Slow down the carousel to 40s
       },
       keyframes: {
         carousel: {
