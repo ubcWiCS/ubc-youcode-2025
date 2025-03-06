@@ -89,9 +89,9 @@ export default function Home() {
 
   const yBackMountains = useTransform(scrollYProgress, [0, 1], [0, 0]);
   const yBackCity = useTransform(scrollYProgress, [0,0.2], [1*vh, 0.5*vh])
-  const yMidCity = useTransform(scrollYProgress, [0.2,0.4], [2*vh, 1.8*vh])
-  const yFrontCity = useTransform(scrollYProgress, [0.4, 0.7], [3*vh, 1.3*vh])
-  const yBottomBuildings = useTransform(scrollYProgress, [0.7, 1], [6*vh, 4.0*vh])
+  const yMidCity = useTransform(scrollYProgress, [0.2,0.4], [2*vh, 2*vh])
+  const yFrontCity = useTransform(scrollYProgress, [0.4, 0.7], [3*vh, 3.3*vh])
+  const yBottomBuildings = useTransform(scrollYProgress, [0.7, 1], [6*vh, 6*vh])
   const yRoad = useTransform(scrollYProgress, [1, 1], [5.5*vh, 5.5*vh]);
   
 
