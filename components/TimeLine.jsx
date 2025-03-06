@@ -11,11 +11,11 @@ const TimeLine = () => {
       </h2>
 
       <div className="text-white text-center mt-4 lg:mt-8 space-y-3 md:space-y-5 lg:space-y-6">
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 07 | Registration Opens</p>
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 14 | Round 1 Applications Close</p>
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 21 | Round 2 Applications Close</p>
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>March 31 | Workshops Begin</p>
-        <p className='text-lg md:text-2xl lg:text-3xl font-semibold'>April 05 | Hacking Begins</p>
+        <p className='text-md md:text-2xl lg:text-3xl font-semibold'>March 07 | Registration Opens</p>
+        <p className='text-md md:text-2xl lg:text-3xl font-semibold'>March 14 | Round 1 Applications Close</p>
+        <p className='text-md md:text-2xl lg:text-3xl font-semibold'>March 21 | Round 2 Applications Close</p>
+        <p className='text-md md:text-2xl lg:text-3xl font-semibold'>March 31 | Workshops Begin</p>
+        <p className='text-md md:text-2xl lg:text-3xl font-semibold'>April 05 | Hacking Begins</p>
 
       </div>
 

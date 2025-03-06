@@ -77,7 +77,7 @@ export default function Home() {
             <Image src={back_mountains} alt="Mountains" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} priority />
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-screen z-20" style={getLayerStyle(1, 0.05, 0.3)}>
+          <div className="absolute top-0 left-0 w-full h-screen z-20" style={getLayerStyle(1, 0.01, 0.3)}>
             <Image src={back_city} alt="Back City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
 
@@ -85,11 +85,11 @@ export default function Home() {
             <Image src={mid_city} alt="Mid City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-screen z-40" style={getLayerStyle(3, 0.25, 0.9)}>
+          <div className="absolute top-0 left-0 w-full h-screen z-40" style={getLayerStyle(3, 0.35, 0.9)}>
             <Image src={front_city} alt="Front City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-screen z-50" style={getLayerStyle(4, 0.35, 1.2)}>
+          <div className="absolute top-0 left-0 w-full h-screen z-50" style={getLayerStyle(4, 0.45, 1.2)}>
             <Image src={totempole} alt="Totem Pole" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
         </div>
