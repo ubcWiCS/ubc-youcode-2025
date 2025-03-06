@@ -117,13 +117,13 @@ export default function Home() {
 
 
         <BgLayer style={{ y: yMidCity, zIndex: 3, marginTop: -700 }}>
-          <Image src={mid_city} alt="mid_city" className="w-screen object-cover object-top" />
-          <div className="absolute top-1/2 left-16">
+          <Image src={mid_city} alt="mid_city" className="w-screen min-h-[150vh] object-cover object-top" />
+          <div className="absolute top-1/3 left-16">
             <AboutSection />
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yFrontCity, zIndex: 4, marginTop: -400 }}>
+        <BgLayer style={{ y: yFrontCity, zIndex: 4, marginTop: -600 }}>
           <Image src={front_city} alt="front_city" className="w-screen object-cover object-top" />
           <div className="absolute top-1/4 w-full h-full justify-center">
             <Sponsors />
@@ -141,7 +141,7 @@ export default function Home() {
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yBottomBuildings, zIndex: 5, marginTop: 0 }}>
+        <BgLayer style={{ y: yBottomBuildings, zIndex: 5, marginTop: -400 }}>
           <Image src={totempole} alt="ground_buildings" className="w-screen object-cover object-top" />
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
             <FaqSection />
