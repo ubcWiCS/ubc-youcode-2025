@@ -4,10 +4,10 @@ import Image from 'next/image'
 const Sponsors = () => {
   const sponsors = [
     { id: 1, src: '/assets/sponsorImages/arcteryx.png', alt: 'Arcteryx' },
-    { id: 2, src: '/assets/sponsorImages/hp.png', alt: 'HP' },
+    // { id: 2, src: '/assets/sponsorImages/hp.png', alt: 'HP' },
     { id: 3, src: '/assets/sponsorImages/sap.png', alt: 'SAP' },
-    { id: 4, src: '/assets/sponsorImages/willowtree.png', alt: 'WillowTree' },
-    { id: 5, src: '/assets/sponsorImages/ubc.png', alt: 'UBC' },
+    // { id: 4, src: '/assets/sponsorImages/willowtree.png', alt: 'WillowTree' },
+    // { id: 5, src: '/assets/sponsorImages/ubc.png', alt: 'UBC' },
   ];
 
   return (
@@ -45,6 +45,9 @@ const Sponsors = () => {
           ))}
         </div>
       </div> 
+      <h3 className='text-[#9A348E] text-xl md:text-2xl lg:text-3xl font-bold m-8'>
+        More sponsor reveals soon!
+      </h3>
     </div>
   );
 };

@@ -9,10 +9,10 @@ const Hero = () => {
   return (
     <div id="hero">
       <div className="flex flex-col justify-center items-center">
-        <Image
-          src={logo}
+        <img
+          src= "/assets/logo.png"
           alt="YouCode Logo"
-          className="object-cover responsive-img"
+          className="w-100 "
         />
       </div>
       <Register/>
