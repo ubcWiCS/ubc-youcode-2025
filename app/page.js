@@ -28,31 +28,42 @@ const images = [
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    setIsClient(true); // This ensures the component is mounted in the browser
   }, []);
-  
+
+  useEffect(() => {
+    if (isClient) {
+      // Only set the scroll event listener once on the client
+      const handleScroll = () => {
+        setScrollY(window.scrollY); // We use window.scrollY here
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [isClient]);
+
   const getLayerStyle = (layerIndex, speed, revealOffset, alwaysVisible = false) => {
+    if (!isClient) return {}; // If on the server side, return an empty object
+
     const revealPoint = revealOffset * window.innerHeight;
     const isVisible = alwaysVisible || scrollY > revealPoint;
-  
+
     const yPos = isVisible ? (scrollY - revealPoint) * speed : 100;
     const opacity = isVisible ? 1 : 0;
-  
+
     return {
       transform: `translateY(${yPos}px)`,
       opacity,
       transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
     };
   };
-  
+
+  // Handle potential errors in your JSX, such as missing elements, styles, etc.
 
   return (
     <div className="relative w-full overflow-x-hidden bg-[#95CBE3]">
@@ -60,30 +71,30 @@ export default function Home() {
       <div className="relative" style={{ height: '600vh' }}>
         <div className="fixed top-0 left-0 w-full h-screen overflow-hidden z-0">
           <div className="absolute top-0 left-0 w-full h-screen bg-[#95CBE3] z-0"></div>
-          
-          <div className="absolute top-0 left-0 w-full h-screen z-10" 
-              style={getLayerStyle(0, 0.1, 0, true)}>  // 'true' makes it always visible on first load
+
+          {/* Background layers */}
+          <div className="absolute top-0 left-0 w-full h-screen z-10" style={getLayerStyle(0, 0.1, 0, true)}>
             <Image src={back_mountains} alt="Mountains" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} priority />
           </div>
 
-          
           <div className="absolute top-0 left-0 w-full h-screen z-20" style={getLayerStyle(1, 0.05, 0.3)}>
             <Image src={back_city} alt="Back City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
-          
+
           <div className="absolute top-0 left-0 w-full h-screen z-30" style={getLayerStyle(2, 0.05, 0.6)}>
             <Image src={mid_city} alt="Mid City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
-          
+
           <div className="absolute top-0 left-0 w-full h-screen z-40" style={getLayerStyle(3, 0.25, 0.9)}>
             <Image src={front_city} alt="Front City" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
-          
+
           <div className="absolute top-0 left-0 w-full h-screen z-50" style={getLayerStyle(4, 0.35, 1.2)}>
             <Image src={totempole} alt="Totem Pole" fill style={{ objectFit: 'cover', objectPosition: 'top center' }} />
           </div>
         </div>
-        
+
+        {/* Content sections */}
         <div className="absolute top-0 left-0 w-full z-60">
           <section className="relative h-screen w-full flex justify-center items-center">
             <Hero />
