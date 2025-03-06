@@ -7,7 +7,7 @@ const Hero = () => {
       <Image
         src="/assets/logowithtext.png"
         alt="YouCode Logo"
-        width={700} // Set your desired width
+        width={2000} // Set your desired width
         height={700} // Set your desired height
         className="w-auto h-auto max-w-sm lg:max-w-lg" // Optional: Tailwind classes
       />

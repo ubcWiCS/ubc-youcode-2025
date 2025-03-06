@@ -190,13 +190,13 @@ const TeamCarousel = () => {
         {duplicatedImages.map((image, index) => (
           <div
             key={index} // Ensure unique keys
-            className="flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/5 px-4" // Adjust spacing
+            className="flex-shrink-0 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/5 px-4" // Adjust spacing
             onClick={() => handleImageClick(image)}
           >
             <img
               src={image.src || "/placeholder.svg"}
               alt={image.name} // Use name for better accessibility
-              className="w-full h-36 object-cover rounded-lg cursor-pointer"
+              className="w-full h-20 md:h-36 object-cover rounded-lg cursor-pointer"
             />
           </div>
         ))}

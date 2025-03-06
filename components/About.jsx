@@ -5,7 +5,7 @@ import Stats from './Stats'
 const About = () => {
   return (
     <div id="about">
-      <div className="flex flex-col w-2/3 bg-[#e6a9de] p-10 rounded-3xl">
+      <div className="flex flex-col w-2/3 bg-[#e6a9de] p-10 m-10 rounded-3xl">
         <div className="md:text-6xl text-2xl font-bold md:ml-8">
           About youCode 
         </div>
