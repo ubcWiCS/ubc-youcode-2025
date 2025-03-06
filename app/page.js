@@ -15,11 +15,9 @@ import FaqSection from '@/components/faq';
 
 import mid_city from './assets/mid_city.svg'
 import back_city from './assets/back_city.svg';
-import bottom_buildings from './assets/bottom_buildings.svg';
 import totempole from './assets/totempole.svg';
 import back_mountains from './assets/back_mountains.svg';
 import front_city from './assets/front_city.svg';
-import road from './assets/road.svg';
 
 
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -58,12 +56,15 @@ const BgSectionContainer = styled(SectionContainer)`
   flex-direction: column;
   align-items: center;
   background: #95CBE3;
-  min-height: 400vh;
+  width: 100%;
+  overflow-y: hidden;
 `;
 
 const BgLayer = styled(motion.div)`
-  position: absolute;
+  position: relative;
+  width: 100%;
 `;
+
 
 const ImageContainer = styled.div`
   display: flex;
@@ -88,18 +89,18 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   const yBackMountains = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const yBackCity = useTransform(scrollYProgress, [0,0.2], [1*vh, 0.5*vh])
-  const yMidCity = useTransform(scrollYProgress, [0.2,0.4], [2*vh, 2*vh])
-  const yFrontCity = useTransform(scrollYProgress, [0.4, 0.7], [3*vh, 3.3*vh])
-  const yBottomBuildings = useTransform(scrollYProgress, [0.7, 1], [6*vh, 6*vh])
-  const yRoad = useTransform(scrollYProgress, [1, 1], [5.5*vh, 5.5*vh]);
+  const yBackCity = useTransform(scrollYProgress, [0, 0.1], [300, 0]);
+  const yMidCity = useTransform(scrollYProgress, [0.3, 0.4], [300, 0]);
+  const yFrontCity = useTransform(scrollYProgress, [0.45, 0.6], [300, 0]);
+  const yBottomBuildings = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  
   
 
   return (
     <div>
       <Navbar />
       
-      <BgSectionContainer ref={ref}>
+      <BgSectionContainer ref={ref} style={{ willChange: "transform"}}>
         <BgLayer style={{ y: yBackMountains, zIndex: 1 }}>
           <Image src={back_mountains} alt="back_mountains" className="w-screen min-h-screen object-cover" />
           <div className="absolute top-0 left-0 w-full h-screen flex items-center justify-center">
@@ -107,22 +108,23 @@ export default function Home() {
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yBackCity, zIndex: 2 }}>
-          <Image src={back_city} alt="back_city" className="w-screen min-h-[150vh] md:min-h-screen object-cover " />
-          <div className="absolute top-1/3 left-0 w-full flex justify-center">
+        <BgLayer style={{ y: yBackCity, zIndex: 2, marginTop: -500 }}>
+          <Image src={back_city} alt="back_city" className="w-screen object-cover object-top" />
+          <div className="absolute top-1/2 left-0 w-full flex justify-center">
             <TimeLine />
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yMidCity, zIndex: 3 }}>
-          <Image src={mid_city} alt="mid_city" className="w-screen min-h-[150vh] md:min-h-screen object-cover" />
-          <div className="absolute top-1/3 left-16">
+
+        <BgLayer style={{ y: yMidCity, zIndex: 3, marginTop: -800 }}>
+          <Image src={mid_city} alt="mid_city" className="w-screen object-cover object-top" />
+          <div className="absolute top-1/2 left-16">
             <AboutSection />
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yFrontCity, zIndex: 4 }}>
-          <Image src={front_city} alt="front_city" className="w-screen min-h-[200vh] md:min-h-screen object-cover" />
+        <BgLayer style={{ y: yFrontCity, zIndex: 4, marginTop: -500 }}>
+          <Image src={front_city} alt="front_city" className="w-screen object-cover object-top" />
           <div className="absolute top-1/4 w-full h-full justify-center">
             <Sponsors />
             <ImageContainer id="image-container">
@@ -139,12 +141,12 @@ export default function Home() {
           </div>
         </BgLayer>
 
-        <BgLayer style={{ y: yBottomBuildings, zIndex: 5 }}>
-          <Image src={totempole} alt="ground_buildings" className="w-screen min-h-[150vh] md:min-h-screen object-cover" />
+        <BgLayer style={{ y: yBottomBuildings, zIndex: 5, marginTop: -300 }}>
+          <Image src={totempole} alt="ground_buildings" className="w-screen object-cover object-top" />
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
             <FaqSection />
           </div>
-          <div className='bg-[#7E7E7E]'>
+          <div className='bg-[#7E7E7E] w-full'>
             <AnimatedCarousel images={images} />
             <Footer />
           </div>
