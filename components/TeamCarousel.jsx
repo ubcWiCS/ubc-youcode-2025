@@ -204,25 +204,25 @@ const TeamCarousel = () => {
 
       {activeImage && (
         <div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+          className="fixed inset-0 flex items-end justify-center  z-50 bg-black bg-opacity-50"
           onClick={handleClosePopup}
         >
-          <Card className="w-80 max-w-[90%]" onClick={(e) => e.stopPropagation()}>
+          <Card className="w-80 max-w-[90%] mb-40 " onClick={(e) => e.stopPropagation()}>
             <CardContent>
               <img
                 src={activeImage.src || "/placeholder.svg"}
                 alt={activeImage.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold mb-2">{activeImage.name}</h3>
-              <p className="text-sm mb-1">
-                <span className="font-medium">Team:</span> {activeImage.team || "N/A"}
+              <h3 className="text-lg text-accent-purple font-semibold mb-2">{activeImage.name}</h3>
+              <p className="text-sm mb-1 text-accent-magenta">
+                <span className="font-medium  ">Team:</span> {activeImage.team || "N/A"}
               </p>
-              <p className="text-sm mb-1">
-                <span className="font-medium">Position:</span> {activeImage.title || "N/A"}
+              <p className="text-sm mb-1 text-accent-magenta">
+                <span className="font-medium ">Position:</span> {activeImage.title || "N/A"}
               </p>
-              <p className="text-sm">
-                <span className="font-medium">Favorite Tech:</span> {activeImage.favoriteTech || "N/A"}
+              <p className="text-sm text-accent-magenta">
+                <span className="font-medium text-balck">Favorite Tech:</span> {activeImage.favoriteTech || "N/A"}
               </p>
             </CardContent>
           </Card>
