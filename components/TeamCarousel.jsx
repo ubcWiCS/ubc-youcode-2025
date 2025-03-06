@@ -185,7 +185,7 @@ const TeamCarousel = () => {
   };
 
   return (
-    <div className="w-screen overflow-hidden pt-16 pb-32">
+    <div className="w-screen overflow-hidden pt-16 pb-32" id="team">
       <div className="animate-carousel hover:pause-animation flex">
         {duplicatedImages.map((image, index) => (
           <div

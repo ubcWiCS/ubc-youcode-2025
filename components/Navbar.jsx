@@ -46,8 +46,8 @@ const Navbar = () => {
               <NavItem onClick={handleResourcesClick}>Resources</NavItem>
               <NavItem href="/#faq">FAQ</NavItem>
               <NavItem href="/#sponsors">Sponsors</NavItem>
-              <NavItem href="/#carousel-section">Contact</NavItem>
-              <NavItem href="/#carousel-section">Team</NavItem>
+              <NavItem href="/#contact">Contact</NavItem>
+              <NavItem href="/#team">Team</NavItem>
             </ul>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <NavItem href="/#contact" onClick={closeMenu}>
               Contact
             </NavItem>
-            <NavItem href="/team" onClick={closeMenu}>
+            <NavItem href="/#team" onClick={closeMenu}>
               Team
             </NavItem>
           </ul>

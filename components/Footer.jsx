@@ -36,7 +36,7 @@ const FooterSection = styled.div`
 
 const Footer = () => {
   return (
-    <StyledFooter>
+    <StyledFooter id="contact">
       {/* Left side Instagram handle */}
       <FooterSection>
         <Link href="https://www.instagram.com/ubcwics/">
