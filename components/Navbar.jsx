@@ -15,26 +15,48 @@ const Navbar = () => {
   };
 
   const handleResourcesClick = () => {
-    window.open("https://momentous-alley-371.notion.site/Pre-Hackathon-Resources-1a56bd9d8cc780a7b3d9e3855d697e70", "_blank");
+    window.open(
+      "https://momentous-alley-371.notion.site/Pre-Hackathon-Resources-1a56bd9d8cc780a7b3d9e3855d697e70",
+      "_blank"
+    );
   };
 
   return (
     <div>
       <div
         className={`fixed top-0 w-full z-10 ease-in bg-transparent hover:bg-dark-green`}
-        style={{ background: "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)" }}
+        style={{
+          background:
+            "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)",
+        }}
       >
         <div className="flex justify-between items-center px-4 py-2">
           <Link href="/" className="hover:scale-105 transition duration-500">
             <div className="w-10 h-10 md:w-16 md:h-16 relative">
-                <Image src="/assets/youCodelogo.png" width={64} height={64} alt="YouCode Logo" />
+              <Image
+                src="/assets/youCodelogo.png"
+                width={64}
+                height={64}
+                alt="YouCode Logo"
+              />
             </div>
           </Link>
 
           <div className="sm:hidden">
-            <button className="p-2 focus:outline-none" onClick={toggleMenu} aria-label="Toggle Menu">
-              <svg className="h-6 w-6 fill-current text-accent-magenta font-bold" viewBox="0 0 24 24">
-                <path fillRule="evenodd" clipRule="evenodd" d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z" />
+            <button
+              className="p-2 focus:outline-none"
+              onClick={toggleMenu}
+              aria-label="Toggle Menu"
+            >
+              <svg
+                className="h-6 w-6 fill-current text-accent-magenta font-bold"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z"
+                />
               </svg>
             </button>
           </div>
@@ -56,17 +78,20 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="fixed bg-[#E5FFFF] inset-0 bg-white z-50 flex items-center justify-center sm:hidden">
-          <button onClick={closeMenu} className="absolute top-4 right-4 text-3xl text-accent-magenta">
+          <button
+            onClick={closeMenu}
+            className="absolute top-4 right-4 text-3xl text-accent-magenta"
+          >
             &times;
           </button>
-          <ul className="flex flex-col items-center space-y-6 text-2xl text-accent-magenta font-bold ">
+          <ul className="flex flex-col items-center space-y-6 text-2xl text-accent-magenta font-bold">
             <NavItem href="/#about" onClick={closeMenu}>
               About
             </NavItem>
             <NavItem href="/#schedule" onClick={closeMenu}>
               Schedule
             </NavItem>
-            <NavItem  onClick={closeMenu}>
+            <NavItem onClick={() => { handleResourcesClick(); closeMenu(); }}>
               Resources
             </NavItem>
             <NavItem href="/#faq" onClick={closeMenu}>
