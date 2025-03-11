@@ -145,7 +145,7 @@ const teamMembers = [
     favoriteTech: "Monitor",
   },
   {
-    src: "/assets/team/oli.png",
+    src: "/assets/team/tetiksha.png",
     name: "Tetiksha Jain",
     team: "WiDS",
     title: "Hackathon Logistics",
