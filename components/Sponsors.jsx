@@ -12,9 +12,9 @@ import Link from 'next/link';
       { id: 5, src: '/assets/sponsorImages/ubc.png', alt: 'UBC', tier: 3, website: "https://vpstudents.ubc.ca/walter-gage/" },
       { id: 6, src: '/assets/sponsorImages/kardium.png', alt: 'Kardium', tier: 3, website: "https://kardium.com" },
       { id: 7, src: '/assets/sponsorImages/willowtree.png', alt: 'WillowTree', tier: 3, website: "https://www.willowtreeapps.com" },
-      { id: 8, src: '/assets/sponsorImages/ea.svg', alt: 'EA', tier: 5, website: "https://www.ea.com/en-ca" },
-      { id: 9, src: '/assets/sponsorImages/teadot.png', alt: 'teadot', tier: 5, website: "https://www.teadotdrinks.com" },
-      { id: 10, src: '/assets/sponsorImages/steves.png', alt: 'Steves', tier: 5, website: "https://www.stevespokebar.ca" },
+      // { id: 8, src: '/assets/sponsorImages/ea.svg', alt: 'EA', tier: 5, website: "https://www.ea.com/en-ca" },
+      // { id: 9, src: '/assets/sponsorImages/teadot.png', alt: 'teadot', tier: 5, website: "https://www.teadotdrinks.com" },
+      // { id: 10, src: '/assets/sponsorImages/steves.png', alt: 'Steves', tier: 5, website: "https://www.stevespokebar.ca" },
     ];
   
   
