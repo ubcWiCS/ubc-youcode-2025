@@ -17,6 +17,7 @@ import Link from 'next/link';
       // { id: 10, src: '/assets/sponsorImages/steves.png', alt: 'Steves', tier: 5, website: "https://www.stevespokebar.ca" },
       { id: 11, src: '/assets/sponsorImages/lowentropy.png', alt: 'Low Entropy', tier: 5, website: "https://lowentropy.org" },
       { id: 12, src: '/assets/sponsorImages/cwi.png', alt: "Community Womens's Initiative", tier: 5, website: "https://www.communitywomensinitiative.com" },
+      { id: 13, src: '/assets/sponsorImages/rtc.png', alt: "Rewriting the Code", tier: 5, website: "https://rewritingthecode.org" },
     ];
   
   
@@ -86,7 +87,7 @@ import Link from 'next/link';
           Community Partners
         </h2>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] w-full max-w-3xl justify-items-center">
+        <div className="grid grid-cols-3 w-full max-w-3xl justify-items-center">
           {tier5Sponsors.map(sponsor => (
             <div key={sponsor.id} className="flex justify-center items-center w-full max-w-[70px] sm:max-w-[70px]">
                <Link href = {sponsor.website}>
