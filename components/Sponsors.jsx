@@ -15,6 +15,8 @@ import Link from 'next/link';
       // { id: 8, src: '/assets/sponsorImages/ea.svg', alt: 'EA', tier: 5, website: "https://www.ea.com/en-ca" },
       // { id: 9, src: '/assets/sponsorImages/teadot.png', alt: 'teadot', tier: 5, website: "https://www.teadotdrinks.com" },
       // { id: 10, src: '/assets/sponsorImages/steves.png', alt: 'Steves', tier: 5, website: "https://www.stevespokebar.ca" },
+      { id: 11, src: '/assets/sponsorImages/lowentropy.png', alt: 'Low Entropy', tier: 5, website: "https://lowentropy.org" },
+      { id: 12, src: '/assets/sponsorImages/cwi.png', alt: "Community Womens's Initiative", tier: 5, website: "https://www.communitywomensinitiative.com" },
     ];
   
   
@@ -79,7 +81,12 @@ import Link from 'next/link';
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 w-full max-w-3xl justify-items-center mt-10">
+
+        <h2 className='text-[#9A348E] text-xl md:text-2xl lg:text-4xl font-bold m-8 text-center'>
+          Community Partners
+        </h2>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] w-full max-w-3xl justify-items-center">
           {tier5Sponsors.map(sponsor => (
             <div key={sponsor.id} className="flex justify-center items-center w-full max-w-[70px] sm:max-w-[70px]">
                <Link href = {sponsor.website}>
