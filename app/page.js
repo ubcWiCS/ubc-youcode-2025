@@ -105,11 +105,11 @@ export default function Home() {
           <section className="relative h-screen w-full flex justify-center items-center">
             <AboutSection />
           </section>
-          <section className="relative h-screen w-full flex justify-center items-center">
+          <section className="relative h-screen w-full flex justify-center items-center mb-64">
             <Sponsors />
           </section>
           <section className="relative h-screen w-full flex justify-center items-center">
-            <div className="w-full max-w-7xl px-4 mt-64">
+            <div className="w-full max-w-7xl px-4">
               <Image src="/assets/nobackground.png" alt="Last Year" width={2880} height={1350} style={{ width: '100%', height: 'auto' }} quality={100} priority />
             </div>
           </section>
