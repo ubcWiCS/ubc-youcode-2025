@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const handleResourcesClick = () => {
     window.open(
-      "https://momentous-alley-371.notion.site/Pre-Hackathon-Resources-1a56bd9d8cc780a7b3d9e3855d697e70",
+      "https://youcode2025.notion.site/homepage",
       "_blank"
     );
   };
