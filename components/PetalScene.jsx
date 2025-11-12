@@ -14,6 +14,28 @@ import rippleLight from "@/app/assets/ripple_light.svg";
 import water from "@/app/assets/water_bg.svg";
 import logo from "@/public/assets/logo.svg";
 
+const INTEREST_FORM_URL = "https://forms.gle/T9edkLNyomiF2ZLGA";
+
+const SCREEN_CONFIG = {
+  MOBILE: {
+    maxWidth: 480,
+    petalCount: 10,
+    petalSize: { base: 30, range: 20, multiplier: 0.8 },
+    rippleSize: { min: 100, range: 75 },
+  },
+  TABLET: {
+    maxWidth: 768,
+    petalCount: 15,
+    petalSize: { base: 35, range: 25, multiplier: 0.9 },
+    rippleSize: { min: 150, range: 75 },
+  },
+  DESKTOP: {
+    petalCount: 20,
+    petalSize: { base: 45, range: 15, multiplier: 1 },
+    rippleSize: { min: 200, range: 100 },
+  },
+};
+
 export default function PetalScene() {
   const containerRef = useRef(null);
   const waterRef = useRef(null);
@@ -24,58 +46,90 @@ export default function PetalScene() {
 
     const petalImages = [petal1.src, petal2.src, petal3.src, petal4.src];
     const rippleImages = [rippleDark.src, rippleLight.src];
-    const petalCount = 18;
 
-    for (let i = 0; i < petalCount; i++) {
-      const petal = document.createElement("img");
-      petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
-      petal.classList.add("petal");
+    const getScreenConfig = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= SCREEN_CONFIG.MOBILE.maxWidth)
+        return SCREEN_CONFIG.MOBILE;
+      if (screenWidth <= SCREEN_CONFIG.TABLET.maxWidth)
+        return SCREEN_CONFIG.TABLET;
+      return SCREEN_CONFIG.DESKTOP;
+    };
 
-      const left = Math.random() * 100;
-      petal.style.left = `${left}vw`;
-      petal.style.top = `${-Math.random() * 100}vh`;
-      petal.style.width = `${25 + Math.random() * 25}px`;
+    const createPetals = () => {
+      container.innerHTML = "";
 
-      const duration = 7 + Math.random() * 3;
-      const screenFactor = window.innerHeight / 900;
-      petal.style.animationDuration = `${duration * screenFactor}s`;
-      petal.style.animationDelay = `${Math.random() * 5}s`;
+      const config = getScreenConfig();
+      const { petalCount, petalSize, rippleSize } = config;
 
-      container.appendChild(petal);
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement("img");
+        petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
+        petal.classList.add("petal");
 
-      // 15% chance to create a ripple associated with this petal
-      if (Math.random() < 0.15) {
-        setTimeout(function createRipple() {
-          const ripple = document.createElement("img");
-          ripple.src =
-            rippleImages[Math.floor(Math.random() * rippleImages.length)];
-          ripple.classList.add("splash");
+        const left = Math.random() * 100;
+        petal.style.left = `${left}vw`;
+        petal.style.top = `${-Math.random() * 100}vh`;
 
-          const size = 200 + Math.random() * 100;
-          ripple.style.width = `${size}px`;
-          ripple.style.height = `${size}px`;
-          ripple.style.left = petal.style.left;
-          ripple.style.transform = `rotate(${Math.random() * 360}deg)`;
-          ripple.style.zIndex = "5";
+        // Petal sizing
+        const baseWidth = petalSize.base + Math.random() * petalSize.range;
+        petal.style.width = `${baseWidth * petalSize.multiplier}px`;
 
-          const waterHeight = waterRef.current
-            ? waterRef.current.offsetHeight
-            : 300;
-          const waterTop = container.offsetHeight - waterHeight;
-          ripple.style.top = `${
-            waterTop + Math.random() * (waterHeight - size)
-          }px`;
+        const duration = 7 + Math.random() * 3;
+        const screenFactor = window.innerHeight / 900;
+        petal.style.animationDuration = `${duration * screenFactor}s`;
+        petal.style.animationDelay = `${Math.random() * 5}s`;
 
-          container.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 3000);
+        container.appendChild(petal);
 
-          const nextDelay = 6000 + Math.random() * 2000;
-          setTimeout(createRipple, nextDelay);
-        }, duration * 1000);
+        if (Math.random() < 0.15) {
+          setTimeout(function createRipple() {
+            const ripple = document.createElement("img");
+            ripple.src =
+              rippleImages[Math.floor(Math.random() * rippleImages.length)];
+            ripple.classList.add("splash");
+            const size = rippleSize.min + Math.random() * rippleSize.range;
+            ripple.style.width = `${size}px`;
+            ripple.style.height = `${size}px`;
+            ripple.style.left = petal.style.left;
+            ripple.style.transform = `rotate(${Math.random() * 360}deg)`;
+            ripple.style.zIndex = "5";
+
+            const waterHeight = waterRef.current
+              ? waterRef.current.offsetHeight
+              : 300;
+            const waterTop = container.offsetHeight - waterHeight;
+            ripple.style.top = `${
+              waterTop + Math.random() * (waterHeight - size)
+            }px`;
+
+            container.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 3000);
+
+            const nextDelay = 6000 + Math.random() * 2000;
+            setTimeout(createRipple, nextDelay);
+          }, duration * 1000);
+        }
       }
-    }
+    };
+
+    createPetals();
+
+    const handleResize = () => {
+      createPetals();
+    };
+
+    let resizeTimeout;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleResize, 250);
+    };
+
+    window.addEventListener("resize", debouncedResize);
 
     return () => {
+      window.removeEventListener("resize", debouncedResize);
+      clearTimeout(resizeTimeout);
       container.innerHTML = "";
     };
   }, []);
@@ -92,7 +146,7 @@ export default function PetalScene() {
           youCode <span className="text-[#FFDFE9]">2026</span>
         </h1>
         <Link
-          href="https://forms.gle/T9edkLNyomiF2ZLGA"
+          href={INTEREST_FORM_URL}
           className="text-sm sm:text-base md:text-lg text-[#FFDFE9] mt-2 hover:underline"
           target="_blank"
           rel="noopener noreferrer"

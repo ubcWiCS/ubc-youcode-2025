@@ -53,7 +53,7 @@ body {
     opacity: 0.5;
   }
   100% {
-    transform: translateY(140vh) rotate(180deg);
+    transform: translateY(130vh) rotate(180deg);
     opacity: 0;
   }
 }
