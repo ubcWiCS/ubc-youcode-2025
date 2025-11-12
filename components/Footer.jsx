@@ -1,75 +1,44 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { AiOutlineMail, AiOutlineInstagram } from 'react-icons/ai';
+"use client";
 
-const StyledFooter = styled.footer`
-  display: flex;
-  flex-direction: column; /* Stack items vertically on small screens */
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: transparent;
-  gap: 1rem; /* Add gap between stacked items */
-
-  @media (min-width: 640px) {
-    flex-direction: row; /* Switch to horizontal layout on larger screens */
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem; /* Increase padding on larger screens */
-  }
-`;
-
-const FooterSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* Smaller gap for small screens */
-
-  @media (min-width: 640px) {
-    gap: 1rem; /* Increase gap for larger screens */
-  }
-
-  @media (min-width: 768px) {
-    gap: 1.5rem; /* Further increase gap for even larger screens */
-  }
-`;
+import React from "react";
+import Link from "next/link";
+import {
+  AiFillLinkedin,
+  AiOutlineInstagram,
+  AiFillTikTok,
+} from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <StyledFooter id="contact">
-      {/* Left side Instagram handle */}
-      <FooterSection>
-        <Link href="https://www.instagram.com/ubcwics/">
-          <AiOutlineInstagram className="w-6 h-6 sm:w-8 sm:h-8 text-white hover:text-pink-500" />
+    <footer className="flex flex-col items-center justify-center py-8 px-4 gap-2 bg-transparent">
+      <div className="flex items-center justify-center gap-4 sm:gap-3 md:gap-4">
+        <Link
+          href="https://www.instagram.com/youcode.ubc/"
+          aria-label="Instagram"
+          className="text-white transition-transform duration-300 ease-in-out hover:text-gray-400 hover:scale-110"
+        >
+          <AiOutlineInstagram className="w-8 h-8 md:w-12 md:h-12" />
         </Link>
-        <span className="text-white text-sm sm:text-base">@ubcwics</span>
-      </FooterSection>
-
-      {/* Middle section with email and Instagram */}
-      <FooterSection>
-        <div className="flex items-center gap-2 sm:gap-4">
-          <Link href="mailto:ubcyoucode@gmail.com">
-            <AiOutlineMail className="w-6 h-6 sm:w-8 sm:h-8 text-white hover:text-blue-500" />
-          </Link>
-          <span className="text-white text-sm sm:text-base">ubcyoucode@gmail.com</span>
-        </div>
-
-        <div className="flex items-center gap-2 sm:gap-4">
-          <Link href="https://www.instagram.com/youcode.ubc/">
-            <AiOutlineInstagram className="w-6 h-6 sm:w-8 sm:h-8 text-white hover:text-pink-500" />
-          </Link>
-          <span className="text-white text-sm sm:text-base">@youcode_ubc</span>
-        </div>
-      </FooterSection>
-
-      {/* Right side Instagram handle */}
-      <FooterSection>
-        <Link href="https://www.instagram.com/widsubc/">
-          <AiOutlineInstagram className="w-6 h-6 sm:w-8 sm:h-8 text-white hover:text-pink-500" />
+        <Link
+          href="https://www.linkedin.com/company/youcode-ubc/"
+          aria-label="LinkedIn"
+          className="text-white transition-transform duration-300 ease-in-out hover:text-gray-400 hover:scale-110"
+        >
+          <AiFillLinkedin className="w-8 h-8 md:w-12 md:h-12" />
         </Link>
-        <span className="text-white text-sm sm:text-base">@widsubc</span>
-      </FooterSection>
-    </StyledFooter>
+        <Link
+          href="https://www.tiktok.com/@youcode.ubc"
+          aria-label="TikTok"
+          className="text-white transition-transform duration-300 ease-in-out hover:text-gray-400 hover:scale-110"
+        >
+          <AiFillTikTok className="w-8 h-8 md:w-12 md:h-12" />
+        </Link>
+      </div>
+
+      <p className="text-white text-sm md:text-base text-center mt-4">
+        youCode26 © 2025 — blooming soon
+      </p>
+    </footer>
   );
 };
 
