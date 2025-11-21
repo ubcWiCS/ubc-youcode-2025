@@ -139,19 +139,36 @@ export default function PetalScene() {
       <div className="absolute inset-0 z-10 pointer-events-none">
         <div ref={containerRef} className="petal-container w-full h-full" />
       </div>
-
       <section className="flex flex-col items-center justify-center mt-16 z-20 text-center">
-        <Image src={logo} alt="youCode Logo" width={80} height={80} />
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mt-3">
-          youCode <span className="text-[#FFDFE9]">2026</span>
+        <Image
+          src={logo}
+          alt="youCode Logo"
+          width={80}
+          height={80}
+          className="py-5"
+        />
+        <p className="text-sm sm:text-base tracking-wide">
+          UBC WiCS x WiDS @UBC presents
+        </p>
+
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mt-3 drop-shadow-md">
+          youCode <span className="text-[var(--pink-light)]">2026</span>
         </h1>
+
+        <p className="mt-2 text-white text-base sm:text-lg leading-relaxed">
+          a 24h hackathon for underrepresented genders <br />
+          <span className="text-[var(--pink-light)] font-medium">
+            April 4th – 5th, 2026
+          </span>
+        </p>
+
         <Link
           href={INTEREST_FORM_URL}
-          className="text-sm sm:text-base md:text-lg text-[#FFDFE9] mt-2 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-full bg-[var(--pink-light)] text-white font-medium hover:bg-[var(--pink-medium)] transition inline-block shadow-md"
         >
-          join youCode 2026 →
+          Register Here!
         </Link>
       </section>
 
