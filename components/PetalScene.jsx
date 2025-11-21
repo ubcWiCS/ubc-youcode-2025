@@ -151,7 +151,7 @@ export default function PetalScene() {
           UBC WiCS x WiDS @UBC presents
         </p>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white mt-3 drop-shadow-md">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
           youCode <span className="text-[var(--pink-light)]">2026</span>
         </h1>
 
