@@ -39,6 +39,7 @@ const SCREEN_CONFIG = {
 export default function PetalScene() {
   const containerRef = useRef(null);
   const waterRef = useRef(null);
+  const rippleTimersRef = useRef([]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -57,6 +58,9 @@ export default function PetalScene() {
     };
 
     const createPetals = () => {
+      rippleTimersRef.current.forEach(clearTimeout);
+      rippleTimersRef.current = [];
+
       container.innerHTML = "";
 
       const config = getScreenConfig();
@@ -78,12 +82,11 @@ export default function PetalScene() {
         const duration = 7 + Math.random() * 3;
         const screenFactor = window.innerHeight / 900;
         petal.style.animationDuration = `${duration * screenFactor}s`;
-        petal.style.animationDelay = `${Math.random() * 5}s`;
 
         container.appendChild(petal);
 
         if (Math.random() < 0.15) {
-          setTimeout(function createRipple() {
+          function createRipple() {
             const ripple = document.createElement("img");
             ripple.src =
               rippleImages[Math.floor(Math.random() * rippleImages.length)];
@@ -107,8 +110,12 @@ export default function PetalScene() {
             setTimeout(() => ripple.remove(), 3000);
 
             const nextDelay = 6000 + Math.random() * 2000;
-            setTimeout(createRipple, nextDelay);
-          }, duration * 1000);
+            const nextTimerId = setTimeout(createRipple, nextDelay);
+            rippleTimersRef.current.push(nextTimerId);
+          }
+
+          const initialTimerId = setTimeout(createRipple, duration * 1000);
+          rippleTimersRef.current.push(initialTimerId);
         }
       }
     };
@@ -131,6 +138,8 @@ export default function PetalScene() {
       window.removeEventListener("resize", debouncedResize);
       clearTimeout(resizeTimeout);
       container.innerHTML = "";
+      rippleTimersRef.current.forEach(clearTimeout);
+      rippleTimersRef.current = [];
     };
   }, []);
 
