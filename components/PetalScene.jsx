@@ -148,6 +148,7 @@ export default function PetalScene() {
       <div className="absolute inset-0 z-10 pointer-events-none">
         <div ref={containerRef} className="petal-container w-full h-full" />
       </div>
+
       <section className="flex flex-col items-center justify-center mt-16 z-20 text-center">
         <Image
           src={logo}
@@ -156,6 +157,7 @@ export default function PetalScene() {
           height={80}
           className="py-5"
         />
+
         <p className="text-sm sm:text-base tracking-wide">
           UBC WiCS x WiDS @UBC presents
         </p>
@@ -165,7 +167,6 @@ export default function PetalScene() {
         </h1>
 
         <p className="mt-2 text-white text-base sm:text-lg leading-relaxed">
-          a 24h hackathon for underrepresented genders <br />
           <span className="text-[var(--pink-light)] font-medium">
             April 4th – 5th, 2026
           </span>
@@ -177,7 +178,7 @@ export default function PetalScene() {
           rel="noopener noreferrer"
           className="text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-full bg-[var(--pink-light)] text-white font-medium hover:bg-[var(--pink-medium)] transition inline-block shadow-md"
         >
-          Register Here!
+          Hacker Interest Form
         </Link>
       </section>
 
