@@ -36,7 +36,7 @@ const Footer = () => {
       </div>
 
       <p className="text-white text-sm md:text-base text-center mt-4">
-        youCode26 © 2025 — blooming soon
+        youCode26 © 2026 — blooming soon
       </p>
     </footer>
   );
