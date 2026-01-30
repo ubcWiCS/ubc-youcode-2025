@@ -189,7 +189,7 @@ export default function PetalScene() {
                 alt="Unicorn on boulder"
                 width={500}
                 height={500}
-                className="w-full h-auto pointer-events-none drop-shadow-2xl"
+                className="w-full h-auto pointer-events-none drop-shadow-2xl animate-float"
                 priority
               />
             </div>
