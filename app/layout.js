@@ -1,4 +1,5 @@
-import { Montserrat } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import { Montserrat, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -8,8 +9,16 @@ export const metadata = {
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["600", "700", "800"], // 600=SemiBold, 700=Bold, 800=ExtraBold
+  weight: ["600", "700", "800"],
   display: "swap",
+  variable: "--font-montserrat",
+});
+
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-dm-serif",
 });
 
 export default function RootLayout({ children }) {
@@ -18,7 +27,10 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={montserrat.className}>{children}</body>
+      <body className={`${montserrat.variable} ${dmSerif.variable}`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

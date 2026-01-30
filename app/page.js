@@ -1,6 +1,6 @@
 "use client";
 
-import PetalScene from "@/components/PetalScene";
+import PetalScene from "@/components/NewPetalScene";
 import Footer from "@/components/Footer";
 
 export default function Home() {
