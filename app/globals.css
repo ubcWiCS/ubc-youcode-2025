@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --blue-dark: #375276;
+  --blue-dark: #145174;
   --blue-medium: #abcfe8;
   --blue-light: #e0f2ff;
   --green-dark: #628d65;
@@ -17,6 +17,17 @@
   --almost-black: #1d1d1d;
   --background-color: #24313e;
   --foreground-rgb: 255, 255, 255;
+}
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-dm {
+  font-family: var(--font-dm-serif), serif;
+}
+
+.font-lexend {
+  font-family: var(--font-lexend), sans-serif;
 }
 
 html,
@@ -62,4 +73,4 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
-.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }

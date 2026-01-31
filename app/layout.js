@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Montserrat, DM_Serif_Display } from "next/font/google";
+import { Montserrat, DM_Serif_Display, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -21,13 +21,20 @@ const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
+const lexend = Lexend_Deca({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  display: "swap",
+  variable: "--font-lexend",
+});
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${montserrat.variable} ${dmSerif.variable}`}>
+      <body className={`${montserrat.variable} ${dmSerif.variable} ${lexend.variable}`}>
         <Navbar />
         {children}
       </body>

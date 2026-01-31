@@ -10,7 +10,6 @@ import petal4 from "@/app/assets/petal_4.svg";
 
 import mountain from "@/app/assets/mountain_bg.svg";
 import water from "@/app/assets/water_bg.svg";
-import ripples from "@/app/assets/ripple_group.svg";
 import logo from "@/public/assets/logo.svg";
 import unicorn from "@/app/assets/unicorn_boulder.svg";
 
@@ -39,7 +38,6 @@ export default function PetalScene() {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
     const petalImages = [petal1.src, petal2.src, petal3.src, petal4.src];
 
     const getScreenConfig = () => {
@@ -55,57 +53,34 @@ export default function PetalScene() {
       container.innerHTML = "";
       const config = getScreenConfig();
       const { petalCount, petalSize } = config;
-
       for (let i = 0; i < petalCount; i++) {
         const petal = document.createElement("img");
         petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
         petal.classList.add("petal");
-
-        const left = Math.random() * 100;
-        petal.style.left = `${left}vw`;
+        petal.style.left = `${Math.random() * 100}vw`;
         petal.style.top = `${-Math.random() * 100}vh`;
-
-        // Petal sizing
         const baseWidth = petalSize.base + Math.random() * petalSize.range;
         petal.style.width = `${baseWidth * petalSize.multiplier}px`;
-
         const duration = 7 + Math.random() * 3;
-        const screenFactor = window.innerHeight / 900;
-        petal.style.animationDuration = `${duration * screenFactor}s`;
-
+        petal.style.animationDuration = `${duration * (window.innerHeight / 900)}s`;
         container.appendChild(petal);
       }
     };
 
     createPetals();
-
-    const handleResize = () => {
-      createPetals();
-    };
-
-    let resizeTimeout;
-    const debouncedResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(handleResize, 250);
-    };
-
-    window.addEventListener("resize", debouncedResize);
-
-    return () => {
-      window.removeEventListener("resize", debouncedResize);
-      clearTimeout(resizeTimeout);
-      container.innerHTML = "";
-    };
+    window.addEventListener("resize", createPetals);
+    return () => window.removeEventListener("resize", createPetals);
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col overflow-hidden">
+    <div className="relative w-full min-h-screen flex flex-col overflow-x-hidden">
+      {/* Hero Section */}
       <div className="relative w-full bg-gradient-to-b from-[#659EBC] to-[#69CAFF]">
         <div className="absolute inset-0 z-10 pointer-events-none">
           <div ref={containerRef} className="petal-container w-full h-full" />
         </div>
 
-        <section className="relative flex flex-col items-center justify-center pt-20 z-20 text-center">
+        <section className="relative flex flex-col items-center justify-center pt-20 z-20 text-center px-4">
           <Image
             src={logo}
             alt="youCode Logo"
@@ -113,24 +88,26 @@ export default function PetalScene() {
             height={80}
             className="py-5"
           />
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-md font-montserrat">
             youCode <span className="text-[#FFDFE9]">2026</span>
           </h1>
-
-          <p className="text-sm sm:text-base tracking-wide">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
             embracing the power of{" "}
             <span className="text-[var(--pink-medium)]">you</span>.
           </p>
-
-          <p className="mt-2 text-white text-base sm:text-lg leading-relaxed">
-            <span className="font-medium">April 4th – 5th, 2026</span>
+          <p className="mt-2 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed font-dm">
+            April 4th – 5th, 2026
           </p>
           <Link
             href={BUTTON_LINK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-lg bg-[var(--pink-medium)] text-white font-medium inline-block shadow-md"
+            className="
+              text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-lg 
+              bg-[var(--pink-medium)] text-white font-medium inline-block 
+              shadow-md transition-all transform hover:scale-[1.03] 
+              hover:shadow-[0_0_15px_rgba(255,105,180,0.7)]
+            "
           >
             APPLY NOW
           </Link>
@@ -141,49 +118,48 @@ export default function PetalScene() {
           alt="Mountain background"
           width={1200}
           height={400}
-          className="w-full object-fill pointer-events-none pt-5"
+          className="w-full object-cover pointer-events-none pt-10"
         />
       </div>
 
-      <div className="relative w-full translate-y-[-12%]">
-        <Image
-          src={water.src}
-          alt="Water background"
-          width={1200}
-          height={300}
-          className="w-full object-fill pointer-events-none"
-        />
-        <Image
-          src={ripples.src}
-          alt="Ripples overlay"
-          width={1200}
-          height={300}
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-        />
-      </div>
-
-      <div className="absolute top-[60%] sm:top-[65%] left-0 w-full z-20 px-6 sm:px-12 lg:px-24 translate-y-[-50%]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 max-w-7xl mx-auto">
+      {/* About Section */}
+      <div
+        id="about"
+        className="relative w-full flex flex-col items-center justify-center 
+                   -mt-[7%] pb-44 pt-20 sm:pt-40 px-6 sm:px-12 lg:px-24"
+        style={{
+          backgroundImage: `url(${water.src})`,
+          backgroundSize: "100% auto",
+          backgroundPosition: "top center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="relative z-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 max-w-7xl mx-auto">
           <div className="w-full md:w-1/2 text-center md:text-left text-white order-1">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-md">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-md">
               <span className="text-[var(--pink-light)]">About </span>
               <span className="text-[var(--almost-white)]">youCode</span>
             </h2>
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed opacity-95">
+
+            <p className="text-sm sm:text-base lg:text-lg leading-relaxed opacity-95 font-dm">
               Dedicated to fostering gender inclusivity and challenging
               traditional norms in the tech industry. We create opportunities
               for underrepresented genders to innovate, guided by our commitment
               to Innovation for Equity and Community. Through tight, welcoming
               spaces, we empower one another to build meaningful connections and
-              lasting impact. Building supportive networks where everyone can
+              lasting impact.Building supportive networks where everyone can
               thrive remains at the core of what we do.
-            </p>
-            <p className="mt-4 text-sm sm:text-base font-medium text-[var(--pink-light)]">
-              Our values: Inclusivity, Visibility, Community, Wellbeing.
+              <br />
+              <br />
+              <strong className="text-[var(--almost-white)]">
+                Our values:
+              </strong>{" "}
+              Inclusivity, Visibility, Community, Wellbeing.
             </p>
           </div>
+
           <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2">
-            <div className="relative w-[240px] sm:w-[350px] lg:w-[500px] transition-all duration-300">
+            <div className="relative w-[220px] sm:w-[350px] lg:w-[450px]">
               <Image
                 src={unicorn}
                 alt="Unicorn on boulder"
