@@ -11,6 +11,7 @@ import petal4 from "@/app/assets/petal_4.svg";
 import mountain from "@/app/assets/mountain_bg.svg";
 import water from "@/app/assets/water_bg.svg";
 import logo from "@/public/assets/logo.svg";
+import wordmark from "@/app/assets/wordmark_logo.svg";
 import unicorn from "@/app/assets/unicorn_boulder.svg";
 
 const BUTTON_LINK_URL = "https://forms.gle/T9edkLNyomiF2ZLGA";
@@ -88,9 +89,16 @@ export default function PetalScene() {
             height={80}
             className="py-5"
           />
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-md font-montserrat">
-            youCode <span className="text-[#FFDFE9]">2026</span>
+          <h1 className="flex items-center gap-5 font-bold text-white drop-shadow-md font-montserrat">
+            <Image
+              src={wordmark}
+              alt="youCode Wordmark"
+              className="h-16 w-auto inline-block"
+            />
+
+            <span className="text-[#FFDFE9] text-6xl">2026</span>
           </h1>
+
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
             embracing the power of{" "}
             <span className="text-[var(--pink-medium)]">you</span>.
@@ -106,7 +114,7 @@ export default function PetalScene() {
               text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-lg 
               bg-[var(--pink-medium)] text-white font-medium inline-block 
               shadow-md transition-all transform hover:scale-[1.03] 
-              hover:shadow-[0_0_15px_rgba(255,105,180,0.7)]
+              hover:shadow-[0_0_15px_rgba(255,105,180,0.7)] font-montserrat
             "
           >
             APPLY NOW
@@ -141,7 +149,7 @@ export default function PetalScene() {
               <span className="text-[var(--almost-white)]">youCode</span>
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed opacity-95 font-dm">
+            <p className="text-sm sm:text-base lg:text-lg leading-relaxed opacity-95 font-dm-sans">
               Dedicated to fostering gender inclusivity and challenging
               traditional norms in the tech industry. We create opportunities
               for underrepresented genders to innovate, guided by our commitment

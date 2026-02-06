@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Montserrat, DM_Serif_Display, Lexend_Deca } from "next/font/google";
+import { Montserrat, DM_Serif_Display, DM_Sans, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -19,6 +19,13 @@ const dmSerif = DM_Serif_Display({
   weight: "400",
   display: "swap",
   variable: "--font-dm-serif",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 const lexend = Lexend_Deca({
