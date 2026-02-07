@@ -14,7 +14,7 @@ import logo from "@/public/assets/logo.svg";
 import wordmark from "@/app/assets/wordmark_logo.svg";
 import unicorn from "@/app/assets/unicorn_boulder.svg";
 
-const BUTTON_LINK_URL = "https://forms.gle/T9edkLNyomiF2ZLGA";
+const BUTTON_LINK_URL = "https://forms.gle/T9edkLNyomiF2ZLGA"; // TODO : update with actual application link
 
 const SCREEN_CONFIG = {
   MOBILE: {
@@ -54,16 +54,32 @@ export default function PetalScene() {
       container.innerHTML = "";
       const config = getScreenConfig();
       const { petalCount, petalSize } = config;
+
       for (let i = 0; i < petalCount; i++) {
         const petal = document.createElement("img");
         petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
         petal.classList.add("petal");
         petal.style.left = `${Math.random() * 100}vw`;
-        petal.style.top = `${-Math.random() * 100}vh`;
+
+        // Start above viewport
+        petal.style.top = `${-20 - Math.random() * 80}vh`;
+
+        // Size
         const baseWidth = petalSize.base + Math.random() * petalSize.range;
         petal.style.width = `${baseWidth * petalSize.multiplier}px`;
-        const duration = 7 + Math.random() * 3;
-        petal.style.animationDuration = `${duration * (window.innerHeight / 900)}s`;
+
+        // Duration
+        const duration = 5.5 + Math.random() * 3;
+        petal.style.animationDuration = `${duration}s`;
+
+        // Random delay
+        petal.style.animationDelay = `${Math.random() * duration}s`;
+
+        // Random horizontal drift direction
+        petal.style.setProperty(
+          "--drift",
+          `${Math.random() > 0.5 ? "-" : ""}${20 + Math.random() * 40}px`,
+        );
         container.appendChild(petal);
       }
     };
@@ -80,23 +96,23 @@ export default function PetalScene() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           <div ref={containerRef} className="petal-container w-full h-full" />
         </div>
-
         <section className="relative flex flex-col items-center justify-center pt-20 z-20 text-center px-4">
           <Image
             src={logo}
             alt="youCode Logo"
             width={80}
             height={80}
-            className="py-5"
+            className="py-4 sm:py-5 w-14 sm:w-16 md:w-20 h-auto"
           />
-          <h1 className="flex items-center gap-5 font-bold text-white drop-shadow-md font-montserrat">
+          <h1 className="flex items-center gap-2 sm:gap-5 font-bold text-white drop-shadow-md font-montserrat">
             <Image
               src={wordmark}
               alt="youCode Wordmark"
-              className="h-16 w-auto inline-block"
+              className="h-8 sm:h-12 md:h-16 w-auto"
             />
-
-            <span className="text-[#FFDFE9] text-6xl">2026</span>
+            <span className="text-[#FFDFE9] text-3xl sm:text-5xl md:text-6xl">
+              2026
+            </span>
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
@@ -126,7 +142,7 @@ export default function PetalScene() {
           alt="Mountain background"
           width={1200}
           height={400}
-          className="w-full object-cover pointer-events-none pt-10"
+          className="w-full object-cover pointer-events-none pt-5"
         />
       </div>
 

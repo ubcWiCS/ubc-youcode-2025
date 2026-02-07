@@ -5,7 +5,7 @@ import bg from "@/app/assets/recap_bg.svg";
 // TODO
 const Recap = () => {
   return (
-    <section className="w-full translate-y-[-2%]">
+    <section id="recap" className="w-full -translate-y-[16%] md:-translate-y-[5%]">
       <Image
         src={bg}
         alt="Beach Background"

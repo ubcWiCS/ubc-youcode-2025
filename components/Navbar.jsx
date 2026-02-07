@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -8,14 +7,22 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // Shared nav items
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    closeMenu();
+  };
+
   const navItems = [
-    { href: "/#about", label: "About" },
-    { href: "/#recap", label: "Recap" },
-    { href: "/#faq", label: "FAQ" },
-    { href: "/#sponsors", label: "Sponsors" },
-    { href: "/#contact", label: "Contact Us" },
-    { href: "/#team", label: "Team" },
+    { id: "about", label: "About" },
+    { id: "recap", label: "Recap" },
+    { id: "faq", label: "FAQ" },
+    { id: "sponsors", label: "Sponsors" },
+    { id: "contact", label: "Contact Us" },
+    { id: "team", label: "Team" },
   ];
 
   return (
@@ -26,7 +33,10 @@ const Navbar = () => {
           {/* Desktop menu */}
           <ul className="hidden sm:flex ml-auto items-center text-xs md:text-sm lg:text-base tracking-wide">
             {navItems.map((item) => (
-              <NavItem key={item.href} href={item.href}>
+              <NavItem
+                key={item.id}
+                onClick={(e) => scrollToSection(e, item.id)}
+              >
                 {item.label}
               </NavItem>
             ))}
@@ -65,9 +75,8 @@ const Navbar = () => {
           <ul className="flex flex-col items-center space-y-8">
             {navItems.map((item) => (
               <NavItem
-                key={item.href}
-                href={item.href}
-                onClick={closeMenu}
+                key={item.id}
+                onClick={(e) => scrollToSection(e, item.id)}
                 fullScreen
               >
                 {item.label}
@@ -80,15 +89,15 @@ const Navbar = () => {
   );
 };
 
-const NavItem = ({ href, children, onClick, fullScreen }) => (
+const NavItem = ({ children, onClick, fullScreen }) => (
   <li
     className={`px-3 py-2 md:px-4 md:py-3 hover:bg-primary-darkgreen hover:scale-110 transition duration-300 ${
       fullScreen ? "text-center w-48 md:w-60" : ""
     }`}
   >
-    <Link href={href} onClick={onClick}>
+    <a href="#" onClick={onClick}>
       {children}
-    </Link>
+    </a>
   </li>
 );
 
