@@ -96,7 +96,7 @@ export default function PetalScene() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           <div ref={containerRef} className="petal-container w-full h-full" />
         </div>
-        <section className="relative flex flex-col items-center justify-center pt-20 z-20 text-center px-4">
+        <section className="relative flex flex-col items-center justify-center pt-10 z-20 text-center px-4">
           <Image
             src={logo}
             alt="youCode Logo"

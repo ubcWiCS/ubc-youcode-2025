@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="fixed top-0 w-full z-50 bg-[#485D95]/[0.73] font-lexend font-medium">
+      <div className="w-full z-50 bg-[#485D95] font-lexend font-medium">
         <div className="flex items-center justify-between px-4 h-12 md:h-14">
           {/* Desktop menu */}
           <ul className="hidden sm:flex ml-auto items-center text-xs md:text-sm lg:text-base tracking-wide">

@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { Montserrat, DM_Serif_Display, DM_Sans, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
@@ -42,7 +41,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${montserrat.variable} ${dmSerif.variable} ${lexend.variable}`}>
-        <Navbar />
         {children}
       </body>
     </html>
