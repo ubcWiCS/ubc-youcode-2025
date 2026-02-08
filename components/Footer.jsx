@@ -27,15 +27,17 @@ const Footer = () => {
     >
       {/* Team Section */}
       <div className="w-full max-w-7xl">
-        <h2
-          className="text-[F4D8D8] text-2xl md:text-4xl font-bold text-center mb-10"
+        <h1
+          className="text-center font-dm italic mb-8
+             text-3xl sm:text-4xl md:text-5xl leading-snug"
           style={{
             color: "#F4D8D8",
-            textShadow: "2px 2px 8px rgba(0,0,0,0.5)",
+            textShadow: "1px 1px 3px rgba(0,0,0,0.35)",
           }}
         >
           Meet the team behind youCode!
-        </h2>
+        </h1>
+
         <TeamCarousel />
       </div>
 

@@ -20,16 +20,9 @@ const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-dm-sans",
-});
-
 const lexend = Lexend_Deca({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["300","500", "600"],
   display: "swap",
   variable: "--font-lexend",
 });

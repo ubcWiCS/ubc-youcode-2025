@@ -116,8 +116,7 @@ export default function PetalScene() {
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
-            embracing the power of{" "}
-            <span className="text-[var(--pink-medium)]">you</span>.
+            embracing the power of you.
           </p>
           <p className="mt-2 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed font-dm">
             April 4th – 5th, 2026
@@ -130,7 +129,7 @@ export default function PetalScene() {
               text-sm sm:text-base md:text-lg mt-4 px-5 py-2 rounded-lg 
               bg-[var(--pink-medium)] text-white font-medium inline-block 
               shadow-md transition-all transform hover:scale-[1.03] 
-              hover:shadow-[0_0_15px_rgba(255,105,180,0.7)] font-montserrat
+              hover:shadow-[0_0_15px_rgba(255,105,180,0.7)] font-lexend
             "
           >
             APPLY NOW
@@ -160,25 +159,21 @@ export default function PetalScene() {
       >
         <div className="relative z-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 max-w-7xl mx-auto">
           <div className="w-full md:w-1/2 text-center md:text-left text-white order-1">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-md">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-md font-dm italic">
               <span className="text-[var(--pink-light)]">About </span>
               <span className="text-[var(--almost-white)]">youCode</span>
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed opacity-95 font-dm-sans">
-              Dedicated to fostering gender inclusivity and challenging
-              traditional norms in the tech industry. We create opportunities
-              for underrepresented genders to innovate, guided by our commitment
-              to Innovation for Equity and Community. Through tight, welcoming
-              spaces, we empower one another to build meaningful connections and
-              lasting impact.Building supportive networks where everyone can
-              thrive remains at the core of what we do.
+            <p className="text-sm sm:text-base lg:text-lg leading-[1.75] opacity-90 font-lexend font-light tracking-tight">
+              We’re dedicated to fostering gender inclusivity and challenging
+              traditional norms in tech. Guided by our commitment to Innovation
+              for Equity and Community, we create welcoming spaces for
+              underrepresented genders to innovate, connect, and grow.
               <br />
               <br />
-              <strong className="text-[var(--almost-white)]">
-                Our values:
-              </strong>{" "}
-              Inclusivity, Visibility, Community, Wellbeing.
+              Our community is built on support, collaboration, and the belief
+              that when people feel seen and supported, they can create real,
+              lasting impact.
             </p>
           </div>
 
