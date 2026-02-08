@@ -4,7 +4,7 @@ import { useState } from "react";
 import aikoImg from "@/app/assets/team/aiko.PNG";
 import lucyImg from "@/app/assets/team/lucy.jpeg";
 import claireImg from "@/app/assets/team/claire.png";
-import tiyaImg from "@/app/assets/team/tiya.jpg";
+import tiyaImg from "@/app/assets/team/tiya.JPG";
 
 // TODO change image
 const teamMembers = [
