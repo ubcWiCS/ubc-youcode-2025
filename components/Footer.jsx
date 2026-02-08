@@ -14,6 +14,7 @@ import bg from "@/app/assets/footer_bg.svg";
 const Footer = () => {
   return (
     <footer
+      id = "team"
       className="-mt-5 md:-mt-16 lg:-mt-0 w-full relative flex flex-col items-center justify-center py-16 px-4 gap-12 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
