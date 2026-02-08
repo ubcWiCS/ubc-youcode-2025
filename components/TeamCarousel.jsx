@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import amara from "@/app/assets/team/amara.png";
 import aikoImg from "@/app/assets/team/aiko.PNG";
 import lucyImg from "@/app/assets/team/lucy.jpeg";
 import claireImg from "@/app/assets/team/claire.png";
@@ -9,7 +10,7 @@ import tiyaImg from "@/app/assets/team/tiya.JPG";
 // TODO change image
 const teamMembers = [
   {
-    src: aikoImg,
+    src: amara,
     name: "Amara Oriaku",
     team: "WiDS",
     title: "youCode Co-lead",
@@ -69,7 +70,7 @@ const TeamCarousel = () => {
             className="cursor-pointer flex flex-col group"
             onClick={() => handleImageClick(member)}
           >
-            <div className="w-full aspect-square rounded-xl overflow-hidden shadow-sm transition-transform duration-300 group-hover:scale-105">
+            <div className="w-full h-28 md:h-32 rounded-xl overflow-hidden shadow-sm transition-transform duration-300 group-hover:scale-105">
               <img
                 src={member.src.src}
                 alt={member.name}

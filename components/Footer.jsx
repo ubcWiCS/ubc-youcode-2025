@@ -14,14 +14,21 @@ import bg from "@/app/assets/footer_bg.svg";
 const Footer = () => {
   return (
     <footer
-      id = "team"
-      className="-mt-5 md:-mt-16 lg:-mt-0 w-full relative flex flex-col items-center justify-center py-16 px-4 gap-12 bg-cover bg-center bg-no-repeat"
+      id="team"
+      className="
+    -mt-5 md:-mt-16 lg:-mt-0
+    w-full min-h-[125vh] md:min-h-[100vh]
+    relative flex flex-col items-center justify-end
+    px-4 pb-12
+    gap-12
+    bg-cover bg-top bg-no-repeat
+  "
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       {/* Team Section */}
       <div className="w-full max-w-7xl">
         <h2
-          className="text-[F4D8D8] text-3xl md:text-4xl font-bold text-center mb-10"
+          className="text-[F4D8D8] text-2xl md:text-4xl font-bold text-center mb-10"
           style={{
             color: "#F4D8D8",
             textShadow: "2px 2px 8px rgba(0,0,0,0.5)",
@@ -69,7 +76,7 @@ const Footer = () => {
         </div>
 
         <p className="text-white text-sm md:text-base text-center tracking-wide font-semibold font-montserrat">
-          Copyright © youCode 2026
+          Copyright © youCode2026
         </p>
       </div>
     </footer>
