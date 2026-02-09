@@ -149,7 +149,7 @@ export default function PetalScene() {
       <div
         id="about"
         className="relative w-full flex flex-col items-center justify-center 
-                   -mt-[7%] pb-44 pt-20 sm:pt-40 px-6 sm:px-12 lg:px-24"
+                   -mt-[7%] pb-14 lg:pb-64 pt-24 sm:pt-40"
         style={{
           backgroundImage: `url(${water.src})`,
           backgroundSize: "100% auto",
@@ -157,14 +157,14 @@ export default function PetalScene() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="relative z-20 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 max-w-7xl mx-auto">
+        <div className="relative z-20 flex flex-col md:flex-row justify-between px-6 md:px-12 lg:px-36 xl:px-48 pt-0 lg:pt-12">
           <div className="w-full md:w-1/2 text-center md:text-left text-white order-1">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-md font-dm italic">
               <span className="text-[var(--pink-light)]">About </span>
               <span className="text-[var(--almost-white)]">youCode</span>
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg leading-[1.75] opacity-90 font-lexend font-light tracking-tight">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-[1.8] opacity-90 font-lexend font-light tracking-tight">
               We’re dedicated to fostering gender inclusivity and challenging
               traditional norms in tech. Guided by our commitment to Innovation
               for Equity and Community, we create welcoming spaces for

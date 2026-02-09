@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import bg from "@/app/assets/faq_bg.svg";
+import bg from "@/app/assets/faq.svg";
 import { MdExpandMore } from "react-icons/md";
 
 const faqs = [
@@ -48,7 +48,7 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
         {/* Question */}
         <button
           onClick={onClick}
-          className="flex w-full items-center justify-between px-4 py-4 text-left text-white font-semibold font-montserrat text-sm sm:text-base focus:outline-none"
+          className="flex w-full items-center justify-between px-4 py-4 text-left text-white font-semibold font-montserrat text-sm sm:text-base lg:text-lg focus:outline-none"
         >
           <span className="pr-4">{question}</span>
           <div
@@ -68,7 +68,7 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
             {/* Divider */}
             <div className="mx-4 border-t border-white/50" />
 
-            <div className="px-4 py-4 md:px-5 text-white font-medium text-sm sm:text-base text-left leading-relaxed">
+            <div className="px-4 py-4 md:px-5 text-white font-medium text-sm sm:text-base lg:text-lg text-left leading-relaxed">
               {answer}
             </div>
           </div>
@@ -82,7 +82,7 @@ const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="relative w-full -mt-[230%] lg:-mt-[100%] z-20">
+    <section className="relative w-full z-20">
       {/* Background Image Container */}
       <div className="absolute inset-0 -z-10 w-full h-full">
         <Image
@@ -97,15 +97,11 @@ const FaqSection = () => {
       </div>
 
       {/* FAQ content */}
-      <div
-        className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pb-24 md:pb-36
-          /* You want this percentage to be slightly larger than your negative margin above */
-          pt-[150%] md:pt-[110%] lg:pt-[50%]"
-      >
-        <div className="w-full md:w-11/12 lg:w-4/5 flex flex-col items-start justify-start">
+      <div className="max-w-7xl px-6 md:px-12 lg:px-20 pb-24 md:pb-36 mt-10 md:mt-16 lg:mt-24 flex flex-col items-start justify-start">
+        <div className="w-full md:w-11/12 lg:w-11/12 flex flex-col items-start justify-start">
           <h2
             id="faq"
-            className="scroll-mt-20 md:scroll-mt-24 mb-10 text-[var(--blue-dark)] font-montserrat font-extrabold text-3xl sm:text-4xl md:text-5xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
+            className="scroll-mt-20 md:scroll-mt-24 mb-10 text-[var(--blue-dark)] font-dm italic text-3xl sm:text-4xl md:text-5xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.1)]"
           >
             FAQs
           </h2>
