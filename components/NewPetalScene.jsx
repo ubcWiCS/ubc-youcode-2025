@@ -164,7 +164,7 @@ export default function PetalScene() {
               <span className="text-[var(--almost-white)]">youCode</span>
             </h2>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-[1.8] opacity-90 font-lexend font-light tracking-tight">
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl leading-[1.8] opacity-90 font-lexend font-light tracking-tight">
               We’re dedicated to fostering gender inclusivity and challenging
               traditional norms in tech. Guided by our commitment to Innovation
               for Equity and Community, we create welcoming spaces for
