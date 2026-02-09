@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import anisa from "@/app/assets/team/anisa.JPG";
 import amara from "@/app/assets/team/amara.png";
 import aikoImg from "@/app/assets/team/aiko.PNG";
 import lucyImg from "@/app/assets/team/lucy.jpeg";
-import claireImg from "@/app/assets/team/claire.png";
+import claireImg from "@/app/assets/team/claire.jpeg";
 import tiyaImg from "@/app/assets/team/tiya.JPG";
 
 // TODO change image
@@ -20,17 +21,17 @@ const teamMembers = [
     src: aikoImg,
     name: "Aiko Sumarno",
     team: "WiCS",
-    title: "Sponsorship & Outreach Coordinator",
+    title: "Sponsorship & Outreach",
   },
   {
-    src: lucyImg,
+    src: anisa,
     name: "Anisa Pirani",
     team: "WiDS",
     title: "Events & Experience",
   },
   {
     src: claireImg,
-    name: "Claire",
+    name: "Claire Zhang",
     team: "WiDS",
     title: "Logistics & Operations",
   },
