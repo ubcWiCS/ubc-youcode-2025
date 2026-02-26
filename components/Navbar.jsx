@@ -1,129 +1,102 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
-import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    closeMenu();
   };
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  const handleResourcesClick = () => {
-    window.open(
-      "https://youcode2025.notion.site/homepage",
-      "_blank"
-    );
-  };
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "recap", label: "Recap" },
+    { id: "faq", label: "FAQ" },
+    // { id: "sponsors", label: "Sponsors" },
+    { id: "contact", label: "Contact Us" },
+  ];
 
   return (
-    <div>
-      <div
-        className={`fixed top-0 w-full z-10 ease-in bg-transparent hover:bg-dark-green`}
-        style={{
-          background:
-            "linear-gradient(to right, #D9FFFF 0%, #C4F9F9 53%, #B2F4F4 100%)",
-        }}
-      >
-        <div className="flex justify-between items-center px-4 py-2">
-          <Link href="/" className="hover:scale-105 transition duration-500">
-            <div className="w-10 h-10 md:w-16 md:h-16 relative">
-              <Image
-                src="/assets/youCodelogo.png"
-                width={64}
-                height={64}
-                alt="YouCode Logo"
-              />
-            </div>
-          </Link>
-
-          <div className="sm:hidden">
-            <button
-              className="p-2 focus:outline-none"
-              onClick={toggleMenu}
-              aria-label="Toggle Menu"
-            >
-              <svg
-                className="h-6 w-6 fill-current text-accent-magenta font-bold"
-                viewBox="0 0 24 24"
+    <>
+      {/* Navbar */}
+      <div className="w-full z-50 bg-[#485D95] font-lexend font-medium">
+        <div className="flex items-center justify-between px-4 h-12 md:h-14">
+          {/* Desktop menu */}
+          <ul className="hidden sm:flex ml-auto items-center text-xs md:text-sm lg:text-base tracking-wide">
+            {navItems.map((item) => (
+              <NavItem
+                key={item.id}
+                onClick={(e) => scrollToSection(e, item.id)}
               >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z"
-                />
-              </svg>
-            </button>
-          </div>
+                {item.label}
+              </NavItem>
+            ))}
+          </ul>
 
-          <div className="hidden sm:flex items-center">
-            <ul className="flex flex-row justify-end text-[10px] lg:text-lg 2xl:text-2xl text-key">
-              <NavItem href="/#schedule">About</NavItem>
-              <NavItem href="/#schedule">Schedule</NavItem>
-              <NavItem onClick={handleResourcesClick}>Resources</NavItem>
-              <NavItem href="/#faq">FAQ</NavItem>
-              <NavItem href="/#sponsors">Sponsors</NavItem>
-              <NavItem href="/#contact">Contact</NavItem>
-              <NavItem href="/#team">Team</NavItem>
-            </ul>
-          </div>
+          {/* Mobile menu button */}
+          <button
+            className="sm:hidden ml-auto p-1 focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+          >
+            <svg
+              className="h-6 w-6 fill-current text-white"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M3 6h18v1H3V6zm0 5h18v1H3v-1zm0 5h18v1H3v-1z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu*/}
       {isOpen && (
-        <div className="fixed bg-[#E5FFFF] inset-0 bg-white z-50 flex items-center justify-center sm:hidden">
+        <div className="fixed inset-0 z-50 bg-[#485D95] flex flex-col items-center justify-center sm:hidden text-white text-lg md:text-xl lg:text-2xl font-bold transition-opacity duration-300">
           <button
             onClick={closeMenu}
-            className="absolute top-4 right-4 text-3xl text-accent-magenta"
+            className="absolute top-6 right-6 text-4xl"
           >
             &times;
           </button>
-          <ul className="flex flex-col items-center space-y-6 text-2xl text-accent-magenta font-bold">
-            <NavItem href="/#about" onClick={closeMenu}>
-              About
-            </NavItem>
-            <NavItem href="/#schedule" onClick={closeMenu}>
-              Schedule
-            </NavItem>
-            <NavItem onClick={() => { handleResourcesClick(); closeMenu(); }}>
-              Resources
-            </NavItem>
-            <NavItem href="/#faq" onClick={closeMenu}>
-              FAQ
-            </NavItem>
-            <NavItem href="/#sponsors" onClick={closeMenu}>
-              Sponsors
-            </NavItem>
-            <NavItem href="/#contact" onClick={closeMenu}>
-              Contact
-            </NavItem>
-            <NavItem href="/#team" onClick={closeMenu}>
-              Team
-            </NavItem>
+
+          <ul className="flex flex-col items-center space-y-8">
+            {navItems.map((item) => (
+              <NavItem
+                key={item.id}
+                onClick={(e) => scrollToSection(e, item.id)}
+                fullScreen
+              >
+                {item.label}
+              </NavItem>
+            ))}
           </ul>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
-const NavItem = ({ href, children, onClick }) => (
-  <li className="p-2 md:p-4 hover:bg-primary-darkgreen hover:scale-110 transition duration-500">
-    {href ? (
-      <Link href={href} onClick={onClick}>
-        {children}
-      </Link>
-    ) : (
-      <button onClick={onClick} className="text-inherit">
-        {children}
-      </button>
-    )}
+const NavItem = ({ children, onClick, fullScreen }) => (
+  <li
+    className={`px-3 py-2 md:px-4 md:py-3 hover:bg-primary-darkgreen hover:scale-110 transition duration-300 ${
+      fullScreen ? "text-center w-48 md:w-60" : ""
+    }`}
+  >
+    <a href="#" onClick={onClick}>
+      {children}
+    </a>
   </li>
 );
 
