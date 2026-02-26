@@ -18,7 +18,7 @@ const Recap = () => {
         className="
           absolute
           top-1/2 left-1/2
-          -translate-x-[130%] -translate-y-[210%] 
+          -translate-x-[130%] -translate-y-[250%] 
           md:-translate-x-[140%] md:-translate-y-[230%]
           lg:-translate-x-[158%] lg:-translate-y-[260%]
           p-2 sm:p-4

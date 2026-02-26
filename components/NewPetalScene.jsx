@@ -14,7 +14,7 @@ import logo from "@/public/assets/logo.svg";
 import wordmark from "@/app/assets/wordmark_logo.svg";
 import unicorn from "@/app/assets/unicorn_boulder.svg";
 
-const BUTTON_LINK_URL = "://linktr.ee/youhttpscode ";
+const BUTTON_LINK_URL = "https://linktr.ee/youcode";
 
 const SCREEN_CONFIG = {
   MOBILE: {
