@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import bg from "@/app/assets/faq.svg";
+import Link from "next/link";
+import bg from "@/app/assets/faq_bg.svg";
 import { MdExpandMore } from "react-icons/md";
 
 const faqs = [
@@ -23,7 +24,18 @@ const faqs = [
   },
   {
     question: "How do I register?",
-    answer: "Applications close March 15th.",
+    answer: (
+      <>
+        Applications close March 15th.{" "}
+        <Link
+          href="https://linktr.ee/youcode"
+          className="underline font-semibold hover:opacity-80"
+          target="_blank"
+        >
+          Apply here
+        </Link>
+      </>
+    ),
   },
   {
     question: "Do I have to register with a team?",
@@ -48,7 +60,11 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
         {/* Question */}
         <button
           onClick={onClick}
-          className="flex w-full items-center justify-between px-4 py-4 text-left text-white font-semibold font-montserrat text-sm sm:text-base lg:text-lg focus:outline-none"
+          className="flex w-full items-center justify-between
+                    px-3 py-3 sm:px-4 sm:py-4
+                    text-left text-white font-semibold font-montserrat
+                    text-sm sm:text-base lg:text-lg
+                    focus:outline-none"
         >
           <span className="pr-4">{question}</span>
           <div
@@ -85,19 +101,23 @@ const FaqSection = () => {
     <section className="relative w-full z-20">
       {/* Background Image Container */}
       <div className="absolute inset-0 -z-10 w-full h-full">
-        <Image
-          src={bg}
-          alt=""
-          fill
-          priority
-          className="object-cover object-top"
-        />
-        {/* Fallback background color for when the FAQs expand very far */}
-        {/* <div className="absolute top-[80%] left-0 w-full h-[100vh] bg-[#A1D4F2] -z-20" /> */}
+        {/* Image only on medium screens and up */}
+        <div className="hidden md:block w-full h-full">
+          <Image
+            src={bg}
+            alt=""
+            fill
+            priority
+            className="object-cover object-top"
+          />
+        </div>
+
+        {/* Background color for mobile */}
+        <div className="block md:hidden w-full h-full bg-[#A1D4F2]" />
       </div>
 
       {/* FAQ content */}
-      <div className="max-w-7xl px-6 md:px-12 lg:px-20 pb-24 md:pb-36 mt-10 md:mt-16 lg:mt-24 flex flex-col items-start justify-start">
+      <div className="max-w-7xl px-6 md:px-12 lg:px-20 pb-24 md:pb-36 mt-[-100px] sm:mt-[-100px] lg:mt-[-230px] flex flex-col items-start justify-start">
         <div className="w-full md:w-11/12 lg:w-11/12 flex flex-col items-start justify-start">
           <h2
             id="faq"

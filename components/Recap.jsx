@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import bg from "@/app/assets/recap.svg";
+import bg from "@/app/assets/recap_bg.svg";
 
 const Recap = () => {
   return (
@@ -11,17 +11,16 @@ const Recap = () => {
       <Image
         src={bg}
         alt="Beach Background"
-        className="w-full h-auto -mt-10"
+        className="w-full h-auto -mt-24"
         priority
       />
       <div
         className="
           absolute
           top-1/2 left-1/2
-          -translate-x-[125%] -translate-y-[55%] 
-          sm:-translate-x-[115%] sm:-translate-y-[53%]
-          md:-translate-x-[138%] md:-translate-y-[50%]
-          lg:-translate-x-[158%] lg:-translate-y-[48%]
+          -translate-x-[130%] -translate-y-[210%] 
+          md:-translate-x-[140%] md:-translate-y-[230%]
+          lg:-translate-x-[158%] lg:-translate-y-[260%]
           p-2 sm:p-4
         "
       >
@@ -32,7 +31,7 @@ const Recap = () => {
             md:text-5xl
             lg:text-6xl
             xl:text-7xl
-            font-bold font-dm italic
+            font-dm italic
             text-[#145174]
             leading-tight
             whitespace-nowrap

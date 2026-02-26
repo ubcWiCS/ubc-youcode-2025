@@ -8,7 +8,6 @@ import lucyImg from "@/app/assets/team/lucy.jpeg";
 import claireImg from "@/app/assets/team/claire.jpeg";
 import tiyaImg from "@/app/assets/team/tiya.JPG";
 
-// TODO change image
 const teamMembers = [
   {
     src: amara,
@@ -84,28 +83,28 @@ const TeamCarousel = () => {
 
       {activeImage && (
         <div
-          className="fixed inset-0 flex items-end justify-center  z-50 bg-black bg-opacity-50"
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
           onClick={handleClosePopup}
         >
           <Card
-            className="w-80 max-w-[90%] mb-40 "
+            className="w-80 max-w-[90%]"
             onClick={(e) => e.stopPropagation()}
           >
             <CardContent>
               <img
-                src={activeImage.src.src || "/placeholder.svg"}
+                src={activeImage.src.src}
                 alt={activeImage.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg text-accent-purple font-semibold mb-2">
+              <h3 className="text-lg text-[var(--blue-dark)] font-semibold mb-2">
                 {activeImage.name}
               </h3>
-              <p className="text-sm mb-1 text-accent-magenta">
-                <span className="font-medium  ">Team:</span>{" "}
+              <p className="text-sm mb-1 text-[var(--pink-medium)]">
+                <span className="font-medium">Team:</span>{" "}
                 {activeImage.team || "N/A"}
               </p>
-              <p className="text-sm mb-1 text-accent-magenta">
-                <span className="font-medium ">Position:</span>{" "}
+              <p className="text-sm mb-1 text-[var(--pink-medium)]">
+                <span className="font-medium">Role:</span>{" "}
                 {activeImage.title || "N/A"}
               </p>
             </CardContent>

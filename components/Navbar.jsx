@@ -20,8 +20,8 @@ const Navbar = () => {
     { id: "about", label: "About" },
     { id: "recap", label: "Recap" },
     { id: "faq", label: "FAQ" },
-    { id: "sponsors", label: "Sponsors" },
-    { id: "team", label: "Team" },
+    // { id: "sponsors", label: "Sponsors" },
+    { id: "contact", label: "Contact Us" },
   ];
 
   return (

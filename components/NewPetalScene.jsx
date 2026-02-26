@@ -14,7 +14,7 @@ import logo from "@/public/assets/logo.svg";
 import wordmark from "@/app/assets/wordmark_logo.svg";
 import unicorn from "@/app/assets/unicorn_boulder.svg";
 
-const BUTTON_LINK_URL = "https://forms.gle/T9edkLNyomiF2ZLGA"; // TODO : update with actual application link
+const BUTTON_LINK_URL = "://linktr.ee/youhttpscode ";
 
 const SCREEN_CONFIG = {
   MOBILE: {
@@ -104,7 +104,7 @@ export default function PetalScene() {
             height={80}
             className="py-4 sm:py-5 w-14 sm:w-16 md:w-20 h-auto"
           />
-          <h1 className="flex items-center gap-2 sm:gap-5 font-bold text-white drop-shadow-md font-montserrat">
+          <h1 className="flex items-center gap-2 sm:gap-5 font-bold drop-shadow-md font-montserrat">
             <Image
               src={wordmark}
               alt="youCode Wordmark"
@@ -115,10 +115,11 @@ export default function PetalScene() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
-            embracing the power of you.
+          <p className="text-lg text-[var(--almost-white)] sm:text-xl md:text-2xl lg:text-3xl italic tracking-wide font-dm">
+            embracing the power of{" "}
+            <span className="text-[var(--pink-medium)]">you</span>.
           </p>
-          <p className="mt-2 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed font-dm">
+          <p className="mt-2 text-[var(--almost-white)] text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed font-dm">
             April 4th – 5th, 2026
           </p>
           <Link
@@ -149,7 +150,7 @@ export default function PetalScene() {
       <div
         id="about"
         className="relative w-full flex flex-col items-center justify-center 
-                   -mt-[7%] pb-14 lg:pb-64 pt-24 sm:pt-40"
+                   -mt-[7%] pb-14 lg:pb-44 pt-20 sm:pt-40 xl:pt-80"
         style={{
           backgroundImage: `url(${water.src})`,
           backgroundSize: "100% auto",
@@ -157,14 +158,14 @@ export default function PetalScene() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="relative z-20 flex flex-col md:flex-row justify-between px-6 md:px-12 lg:px-36 xl:px-48 pt-0 lg:pt-12">
+        <div className="relative z-20 flex flex-col md:flex-row justify-between px-6 md:px-12 lg:px-36 xl:px-48">
           <div className="w-full md:w-1/2 text-center md:text-left text-white order-1">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 drop-shadow-md font-dm italic">
               <span className="text-[var(--pink-light)]">About </span>
-              <span className="text-[var(--almost-white)]">youCode</span>
+              <span className="text-[#FDECED]">youCode</span>
             </h2>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-xl leading-[1.8] opacity-90 font-lexend font-light tracking-tight">
+            <p className="text-sm sm:text-xs md:text-base lg:text-base opacity-90 font-lexend font-light tracking-tight">
               We’re dedicated to fostering gender inclusivity and challenging
               traditional norms in tech. Guided by our commitment to Innovation
               for Equity and Community, we create welcoming spaces for
@@ -174,17 +175,20 @@ export default function PetalScene() {
               Our community is built on support, collaboration, and the belief
               that when people feel seen and supported, they can create real,
               lasting impact.
+              <br />
+              <br />
+              Our values: Inclusivity, Visibility, Community, Wellbeing.
             </p>
           </div>
 
           <div className="w-full md:w-1/2 flex justify-center md:justify-end order-2">
-            <div className="relative w-[220px] sm:w-[350px] lg:w-[450px]">
+            <div className="relative w-[140px] sm:w-[300px] lg:w-[450px] ">
               <Image
                 src={unicorn}
                 alt="Unicorn on boulder"
                 width={500}
                 height={500}
-                className="w-full h-auto pointer-events-none drop-shadow-2xl animate-float"
+                className="w-full h-auto pointer-events-none drop-shadow-2xl animate-float pt-5"
                 priority
               />
             </div>
