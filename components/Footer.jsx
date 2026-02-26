@@ -18,7 +18,7 @@ const Footer = () => {
       className="
         w-full  
         -mt-24 md:-mt-32 lg:-mt-18
-        min-h-[80vh] sm:min-h-[90vh] xl:min-h-[50vh]
+        min-h-[80vh] sm:min-h-[max(65vh,500px)] xl:min-h-[max(50vh,500px)]
         relative flex flex-col items-center justify-end
         px-4 pb-8 gap-8 
         bg-cover bg-top bg-no-repeat
