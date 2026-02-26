@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import bg from "@/app/assets/recap_bg.svg";
+import bgDesktop from "@/app/assets/recap_bg.svg";
+import bgMobile from "@/app/assets/recap_bg_mobile.svg";
 
 const Recap = () => {
   return (
@@ -8,17 +9,28 @@ const Recap = () => {
       id="recap"
       className="relative w-full bg-[var(--background-color)]"
     >
+      {/* Mobile Background */}
       <Image
-        src={bg}
-        alt="Beach Background"
-        className="w-full h-auto -mt-24"
+        src={bgMobile}
+        alt="Recap Background"
+        className="w-full h-auto -mt-16 block md:hidden"
         priority
       />
+
+      {/* Desktop Background */}
+      <Image
+        src={bgDesktop}
+        alt="Recap Background"
+        className="w-full h-auto -mt-24 hidden md:block"
+        priority
+      />
+
+      {/* Text (hidden on mobile) */}
       <div
         className="
+          hidden md:block
           absolute
           top-1/2 left-1/2
-          -translate-x-[130%] -translate-y-[250%] 
           md:-translate-x-[140%] md:-translate-y-[230%]
           lg:-translate-x-[158%] lg:-translate-y-[260%]
           p-2 sm:p-4
