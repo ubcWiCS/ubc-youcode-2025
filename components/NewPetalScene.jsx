@@ -104,6 +104,9 @@ export default function PetalScene() {
             height={80}
             className="py-4 sm:py-5 w-14 sm:w-16 md:w-20 h-auto"
           />
+          <p className="text-[var(--almost-white)] text-xl sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-dm">
+            UBC WiCS x WiDS@UBC
+          </p>
           <h1 className="flex items-center gap-2 sm:gap-5 font-bold drop-shadow-md font-montserrat">
             <Image
               src={wordmark}
