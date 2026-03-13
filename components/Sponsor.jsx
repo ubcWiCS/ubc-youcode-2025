@@ -9,8 +9,8 @@ import HP from "@/app/assets/sponsors/HP.svg";
 import Arcteryx from "@/app/assets/sponsors/Arcteryx.svg";
 import EY from "@/app/assets/sponsors/EY.svg";
 import TelusDigital from "@/app/assets/sponsors/TelusDigital.svg";
-import StearGrant from "@/app/assets/sponsors/StearGrant.svg";
-import WalterGage from "@/app/assets/sponsors/WalterGage.svg";
+import StearGrant from "@/app/assets/sponsors/StearGrant.png";
+import WalterGage from "@/app/assets/sponsors/WalterGage.png";
 
 const sponsors = [
   {
