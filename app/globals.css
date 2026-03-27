@@ -84,3 +84,11 @@ body {
 #about {
   scroll-margin-top: -70px;
 }
+@keyframes carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
