@@ -20,22 +20,18 @@ const TeamCarousel = () => {
   const duplicatedImages = [...teamMembers, ...teamMembers];
   const [activeImage, setActiveImage] = useState(null);
 
-  const handleImageClick = (image) => {
-    setActiveImage(image);
-  };
-
-  const handleClosePopup = () => {
-    setActiveImage(null);
-  };
-
+  const duration = teamMembers.length * 30; // Adjust duration based on team size
   return (
-    <div className="w-full overflow-hidden" id="team">
-      <div className="animate-carousel hover:pause-animation flex pt-6">
+    <div className="w-full overflow-hidden pt-6" id="team">
+      <div
+        className="flex w-max animate-carousel hover:[animation-play-state:paused]"
+        style={{ animationDuration: `${duration}s` }}
+      >
         {duplicatedImages.map((image, index) => (
           <div
             key={`${image.name}-${index}`}
-            className="flex-shrink-0 w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/5 px-4"
-            onClick={() => handleImageClick(image)}
+            className="w-40 sm:w-44 md:w-48 lg:w-52 xl:w-56 flex-shrink-0 px-4"
+            onClick={() => setActiveImage(image)}
           >
             <img
               src={image.src?.src || image.src || "/placeholder.svg"}
@@ -48,14 +44,14 @@ const TeamCarousel = () => {
 
       {activeImage && (
         <div
-          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
-          onClick={handleClosePopup}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          onClick={() => setActiveImage(null)}
         >
           <Card
             className="w-80 max-w-[90%]"
             onClick={(e) => e.stopPropagation()}
           >
-            <CardContent className="text-black">
+            <CardContent className="text-black pt-6">
               <img
                 src={
                   activeImage.src?.src || activeImage.src || "/placeholder.svg"
@@ -63,14 +59,11 @@ const TeamCarousel = () => {
                 alt={activeImage.name}
                 className="w-full h-40 object-cover rounded-lg mb-4"
               />
-
               <h3 className="text-lg font-semibold mb-2">{activeImage.name}</h3>
-
               <p className="text-sm mb-1">
                 <span className="font-medium">Team:</span>{" "}
                 {activeImage.team || "N/A"}
               </p>
-
               <p className="text-sm mb-1">
                 <span className="font-medium">Position:</span>{" "}
                 {activeImage.title || "N/A"}
