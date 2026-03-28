@@ -3,7 +3,7 @@ import Image from "next/image";
 import bg from "@/app/assets/sponsor_bg.svg";
 import mobileBG from "@/app/assets/sponsor_bg_mobile.svg";
 import SAP from "@/app/assets/sponsors/SAP.svg";
-import Deloitte from "@/app/assets/sponsors/Deloitte.svg";
+import Deloitte from "@/app/assets/sponsors/Deloitte.jpg";
 import Amazon from "@/app/assets/sponsors/Amazon.svg";
 import HP from "@/app/assets/sponsors/HP.svg";
 import Arcteryx from "@/app/assets/sponsors/Arcteryx.svg";
