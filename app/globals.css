@@ -84,11 +84,76 @@ body {
 #about {
   scroll-margin-top: -70px;
 }
-@keyframes carousel-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Team slider */
+.team-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: grab;
+  width: 100%;
+  height: 28px;
+}
+
+.team-slider:active {
+  cursor: grabbing;
+}
+
+.team-slider::-webkit-slider-runnable-track {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+}
+
+.team-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 10px;
+  margin-top: 1px;
+  border-radius: 9999px;
+  background: rgba(244, 216, 216, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.team-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+}
+
+.team-slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
+
+.team-slider::-moz-range-track {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+}
+
+.team-slider::-moz-range-progress {
+  height: 12px;
+  background: rgba(244, 216, 216, 0.35);
+  border-radius: 9999px;
+}
+
+.team-slider::-moz-range-thumb {
+  width: 60px;
+  height: 10px;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(244, 216, 216, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.team-slider::-moz-range-thumb:hover {
+  transform: scale(1.08);
 }
