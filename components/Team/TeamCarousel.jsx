@@ -19,77 +19,72 @@ const CardContent = ({ className, children }) => (
 const TeamCarousel = () => {
   const [activeImage, setActiveImage] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
   const [maxScroll, setMaxScroll] = useState(0);
 
   const containerRef = useRef(null);
-  const trackRef = useRef(null);
-  const sliderValueRef = useRef(0);
 
-  useEffect(() => {
-    const update = () => {
-      if (containerRef.current && trackRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const trackWidth = trackRef.current.scrollWidth;
-        setMaxScroll(Math.max(0, trackWidth - containerWidth));
-      }
-    };
-
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  // Trackpad scrolling
-  useEffect(() => {
+  const updateScrollData = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const onWheel = (e) => {
-      const delta =
-        Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      if (Math.abs(delta) < 2) return;
+    const nextMaxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
+    setMaxScroll(nextMaxScroll);
 
-      e.preventDefault();
-
-      const sensitivity = 0.03; // increase for faster scrolling
-      const next = Math.min(
-        100,
-        Math.max(0, sliderValueRef.current + delta * sensitivity),
-      );
-      sliderValueRef.current = next;
-      setSliderValue(next);
-    };
-
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
+    if (nextMaxScroll > 0) {
+      setSliderValue((el.scrollLeft / nextMaxScroll) * 100);
+    } else {
+      setSliderValue(0);
+    }
   }, []);
 
   useEffect(() => {
-    sliderValueRef.current = sliderValue;
-  }, [sliderValue]);
+    updateScrollData();
+    window.addEventListener("resize", updateScrollData);
+    return () => window.removeEventListener("resize", updateScrollData);
+  }, [updateScrollData]);
 
-  const scrollX = (sliderValue / 100) * maxScroll;
+  const handleContainerScroll = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-  const handleSliderChange = useCallback((e) => {
-    setSliderValue(Number(e.target.value));
+    const nextMaxScroll = Math.max(0, el.scrollWidth - el.clientWidth);
+    setMaxScroll(nextMaxScroll);
+
+    if (nextMaxScroll > 0) {
+      setSliderValue((el.scrollLeft / nextMaxScroll) * 100);
+    } else {
+      setSliderValue(0);
+    }
   }, []);
 
+  const handleSliderChange = useCallback((e) => {
+    const next = Number(e.target.value);
+    setSliderValue(next);
+
+    const el = containerRef.current;
+    if (!el) return;
+
+    const nextScrollLeft = (next / 100) * maxScroll;
+    el.scrollLeft = nextScrollLeft;
+  }, [maxScroll]);
+
   return (
-    <div className="w-full overflow-hidden pt-6" id="team">
-      <div className="w-full overflow-hidden" ref={containerRef}>
-        <div
-          ref={trackRef}
-          className="flex w-max"
-          style={{
-            transform: `translateX(-${scrollX}px)`,
-            transition: isDragging ? "none" : "transform 0.15s ease-out",
-          }}
-        >
+    <div className="w-full pt-6" id="team">
+      <div
+        ref={containerRef}
+        onScroll={handleContainerScroll}
+        className="w-full overflow-x-auto overflow-y-hidden px-2"
+        style={{
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        <div className="flex w-max">
           {teamMembers.map((member, index) => (
             <div
               key={`${member.name}-${index}`}
-              className="w-40 sm:w-44 md:w-48 lg:w-52 xl:w-56 flex-shrink-0 px-4"
+              className="w-40 sm:w-44 md:w-48 lg:w-52 xl:w-56 flex-shrink-0 px-2"
               onClick={() => setActiveImage(member)}
             >
               <img
@@ -102,7 +97,6 @@ const TeamCarousel = () => {
         </div>
       </div>
 
-      {/* Slider */}
       <div className="mt-2 px-4">
         <input
           type="range"
@@ -111,15 +105,12 @@ const TeamCarousel = () => {
           step={0.5}
           value={sliderValue}
           onChange={handleSliderChange}
-          onMouseDown={() => setIsDragging(true)}
-          onMouseUp={() => setIsDragging(false)}
-          onTouchStart={() => setIsDragging(true)}
-          onTouchEnd={() => setIsDragging(false)}
+          onInput={handleSliderChange}
           className="team-slider w-full"
+          style={{ touchAction: "pan-x" }}
         />
       </div>
 
-      {/* Modal */}
       {activeImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
