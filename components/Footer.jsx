@@ -20,7 +20,7 @@ const Footer = () => {
         -mt-20 md:-mt-32 lg:-mt-18
         min-h-[80vh] sm:min-h-[max(65vh,500px)] xl:min-h-[max(50vh,500px)]
         relative flex flex-col items-center justify-end
-        px-4 pb-8 gap-8 
+        px-4 pb-8 gap-2
         bg-cover bg-top bg-no-repeat 
       "
       style={{ backgroundImage: `url(${bg.src})` }}
